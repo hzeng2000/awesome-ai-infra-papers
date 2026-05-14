@@ -1,0 +1,187 @@
+# Awesome AI Infra Papers
+
+> A paper-first reading map for AI infrastructure, LLM systems, efficient inference, RAG, agents, and reliable LLM applications.
+
+**Suggested repository name:** `awesome-ai-infra-papers`  
+**Last collected:** 2026-05-14, America/Los_Angeles  
+**Primary language:** English titles + bilingual notes are welcome. Chinese comments are acceptable when they help readers quickly triage.
+
+## What is this repository?
+
+This repository is a curated, paper-oriented index for people working on AI infrastructure and LLM application systems. It focuses on work that helps us understand, build, optimize, evaluate, or secure modern AI systems.
+
+The scope intentionally covers both low-level AI systems and application-level systems:
+
+- LLM serving, inference engines, scheduling, batching, disaggregated prefill/decode, distributed inference, and training systems.
+- Tensor compilers, MLIR/IR, kernel generation, GPU/NPU optimization, hardware-aware model execution.
+- Efficient inference algorithms, including KV cache optimization, speculative decoding, quantization, compression, MoE inference, long-context inference, efficient reasoning, and on-device inference.
+- RAG, GraphRAG, retrieval-augmented reasoning, knowledge-intensive systems, and RAG evaluation.
+- LLM agents, multi-agent systems, agent memory, tool use, deep research agents, web/computer-use agents, and agent benchmarks.
+- Evaluation, reliability, hallucination, safety, security, prompt-injection defense, and production-facing LLM system assessment.
+
+The repository is **not** meant to be a model leaderboard, product directory, prompt collection, app template gallery, or generic AI tools list.
+
+## Repository structure
+
+```text
+.
+├── README.md
+├── COLLECTION.md
+└── categories/
+    ├── 01-systems-serving.md
+    ├── 02-compiler-kernels-hardware.md
+    ├── 03-efficient-inference-algorithms.md
+    ├── 04-rag-knowledge-systems.md
+    ├── 05-agents-application-systems.md
+    └── 06-evaluation-safety-reliability.md
+```
+
+Current root files:
+
+- [`README.md`](./README.md): repo purpose, scope, curation policy, ranking rules, and entry template.
+- [`COLLECTION.md`](./COLLECTION.md): top-level category map and seed upstream repositories.
+
+Planned category files:
+
+| File | Main scope | Example sub-directions |
+|---|---|---|
+| `categories/01-systems-serving.md` | AI systems, LLM serving, distributed training/inference | inference serving, batching, scheduling, disaggregated serving, training infra, on-device systems |
+| `categories/02-compiler-kernels-hardware.md` | compiler, kernel, and hardware-aware optimization | tensor compiler, MLIR, auto-tuning, GPU/NPU kernels, LLM-driven kernel generation |
+| `categories/03-efficient-inference-algorithms.md` | algorithm-system co-design for efficient LLMs | KV cache, speculative decoding, quantization, pruning, compression, MoE, long context, efficient reasoning |
+| `categories/04-rag-knowledge-systems.md` | RAG and knowledge-intensive systems | RAG survey, GraphRAG, retrieval, RAG-reasoning, RAG evaluation, domain RAG systems |
+| `categories/05-agents-application-systems.md` | agent systems and application-level research | LLM agents, multi-agent systems, tool use, memory, web/computer agents, coding agents, deep research |
+| `categories/06-evaluation-safety-reliability.md` | eval, safety, security, reliability | LLM eval, agent eval, hallucination, prompt injection, LLM security, safety benchmarks |
+
+## Curation standards
+
+### Include when at least one is true
+
+1. The entry is a **paper, survey, benchmark, dataset, or artifact** related to AI infra / LLM systems / RAG / agents / evaluation / safety.
+2. The paper has **open-source code**, a benchmark implementation, an artifact, reproducibility materials, or a system implementation.
+3. The work is **published or accepted** by a conference, journal, workshop, or major archival venue, or is a high-signal arXiv preprint with strong adoption.
+4. The entry is a **paper-centric awesome list** or survey repository that organizes research papers with links to paper/code.
+5. The work is clearly useful for understanding production LLM systems, even if it is framed as research rather than a product.
+
+### Prefer entries with
+
+- Public code, artifact, benchmark, dataset, or evaluation harness.
+- Peer-reviewed venue or high-quality survey.
+- Clear taxonomy and reproducible experimental setup.
+- Strong system relevance: latency, throughput, memory, cost, reliability, deployment, scheduling, hardware utilization, security, or evaluation.
+- Evidence of community adoption: GitHub stars, forks, issues/PRs, citations, downstream usage, or inclusion in other trusted lists.
+- Recent updates or active maintenance.
+
+### Exclude by default
+
+- Pure model zoo, checkpoint collection, leaderboard, or model ranking.
+- Pure app/demo/template repositories without a paper, benchmark, or research framing.
+- Pure engineering/product/tool directories with no paper-centric structure.
+- Prompt collections, agent skill collections, MCP server/client catalogs, workflow galleries, or marketplace-style lists.
+- Stale forks, duplicate mirrors, or repositories whose value is mostly SEO/aggregation without curation.
+- Broad AI news/resources lists unless they have a strong research-paper section relevant to this repo.
+
+Some excluded repositories may still be useful in practice. They belong in a separate `awesome-ai-infra-engineering` or `awesome-llm-apps-engineering` list, not in this paper-first repository.
+
+## Ranking principles
+
+Within each category, sort entries by practical research value rather than chronology alone.
+
+Recommended priority signals:
+
+1. **Open-source code / artifact availability**: code, benchmark, dataset, reproducibility package, Docker, scripts, or public implementation.
+2. **Publication quality**: accepted by conferences/journals such as OSDI, SOSP, NSDI, SIGCOMM, EuroSys, ATC, ASPLOS, ISCA, HPCA, SC, MLSys, NeurIPS, ICML, ICLR, ACL, EMNLP, NAACL, KDD, SIGIR, WWW, VLDB, SIGMOD, TOIS, TMLR, ACM CSUR, etc.
+3. **Impact signals**: GitHub stars, forks, citations, downstream usage, integration into known systems, or repeated appearance in surveys.
+4. **Direct fit**: closer to AI infra / LLM systems / RAG / agents / eval / safety ranks higher than generic ML/NLP work.
+5. **Reproducibility**: detailed benchmarks, ablations, workload traces, artifact evaluation, deterministic scripts, and clear hardware/software setup.
+6. **Recency and maintenance**: recent papers, updated code, active issues/PRs, and maintained awesome lists rank higher.
+7. **System insight**: papers with clear systems lessons, bottleneck analysis, failure modes, or design trade-offs rank higher than purely empirical reports.
+
+A simple scoring rubric can be used when triaging:
+
+```text
+Recommendation =
+  30% direct relevance
++ 20% open-source code/artifact
++ 15% publication/citation signal
++ 15% practical adoption/GitHub signal
++ 10% reproducibility/evaluation quality
++ 10% recency/maintenance
+```
+
+This is a guide, not a strict formula.
+
+## Recommendation index
+
+| Score | Meaning |
+|---|---|
+| ★★★★★ | Must-read / core infrastructure paper or source list |
+| ★★★★☆ | Strongly recommended; useful for most readers in the area |
+| ★★★☆☆ | Good supporting work or specialized subtopic |
+| ★★☆☆☆ | Worth tracking, but niche, early, or missing artifacts |
+| ★☆☆☆☆ | Candidate only; needs verification or stronger evidence |
+
+## Entry template
+
+Use this table format inside each category file. It is inspired by paper-list repositories such as `Zefan-Cai/Awesome-LLM-KV-Cache`, but adds fields useful for infra triage.
+
+```markdown
+| Date | Venue | Title | Paper | Code | Stars | Citations | Area | Tags | Rec | Comment | Status |
+|---|---|---|---|---|---:|---:|---|---|---|---|---|
+| 2025-02 | MLSys 2025 | Paper title | [paper](https://...) | [code](https://...) | 1.2k | 120 | Serving | batching, scheduler | ★★★★★ | One-sentence reason why this matters. | ✅ code / 🧪 benchmark |
+```
+
+Field notes:
+
+| Field | Meaning |
+|---|---|
+| `Date` | First public date or conference date. Use `YYYY-MM` when possible. |
+| `Venue` | Conference/journal/workshop/arXiv. Use `arXiv` only when not peer-reviewed yet. |
+| `Title` | Official paper title. |
+| `Paper` | arXiv, OpenReview, ACL Anthology, ACM, USENIX, conference PDF, or project page. |
+| `Code` | Official code preferred. If unavailable, use strong third-party implementation and mark it. |
+| `Stars` | GitHub stars for the code repository, not the paper-list repo, unless the entry itself is a source list. |
+| `Citations` | Google Scholar / Semantic Scholar / OpenAlex citation count; include collection date if manually recorded. |
+| `Area` | One of the six top-level categories or a category sub-direction. |
+| `Tags` | Short tags such as `kv-cache`, `speculative-decoding`, `rag-eval`, `agent-memory`, `mlir`. |
+| `Rec` | Recommendation index from ★ to ★★★★★. |
+| `Comment` | One short judgment: contribution, system lesson, limitation, or why it is included. |
+| `Status` | `✅ code`, `🧪 benchmark`, `📄 paper-only`, `⚠️ unofficial-code`, `🕒 stale`, etc. |
+
+## Source-list template
+
+For upstream awesome/paper-list repositories, use this table format in `COLLECTION.md` or category headers.
+
+```markdown
+| Source repo | Scope | Paper-centric? | Code links? | Activity | Priority | Notes |
+|---|---|---|---|---|---|---|
+| [owner/repo](https://github.com/owner/repo) | KV cache optimization | Yes | Often | Active | P0 | Best entry point for KV cache papers. |
+```
+
+## Maintenance checklist
+
+When adding or updating entries:
+
+- Verify the paper link and code link.
+- Prefer official code over unofficial code.
+- Record GitHub stars and citation counts with the collection date if possible.
+- Mark whether the paper is peer-reviewed, arXiv-only, or accepted but not yet published.
+- Add a short comment explaining why the paper matters for systems/application infrastructure.
+- Avoid adding a repo merely because it is popular; it must match the paper-first scope.
+- Move pure tools, templates, app galleries, model lists, and prompt libraries to an appendix or a separate repository.
+
+## Suggested automation later
+
+Useful scripts to add later:
+
+- `scripts/update_github_stars.py`: refresh stars for code repositories via GitHub API.
+- `scripts/update_citations.py`: refresh citation counts via Semantic Scholar / OpenAlex.
+- `scripts/check_links.py`: check broken paper/code links.
+- `scripts/sort_tables.py`: sort by recommendation, venue tier, citation count, stars, and date.
+
+## License
+
+Recommended license: `CC-BY-4.0` for the curated text, or `MIT` if you expect scripts and code to live in this repo.
+
+## Acknowledgements
+
+This repository starts from existing paper-centric awesome lists in AI systems, LLM systems, efficient inference, RAG, agents, and evaluation/safety. See [`COLLECTION.md`](./COLLECTION.md) for the initial source map.
