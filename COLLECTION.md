@@ -1,7 +1,7 @@
 # Collection Map
 
 **Suggested repository name:** `awesome-ai-infra-papers`  
-**Last collected:** 2026-05-14, America/Los_Angeles  
+**Last collected:** 2026-05-15, Asia/Shanghai  
 **Collection principle:** paper-first, infra-oriented, no pure model leaderboard, no pure app/tool directory.
 
 This file is the root-level map of the repository. It defines the top-level taxonomy and seed upstream repositories to mine when building category-level paper tables.
@@ -146,7 +146,7 @@ These repositories can be useful, but they are not primary sources for this repo
 
 ## Category-file internal structure
 
-Each category file should use the following structure.
+Each category file should use concrete technical sub-directions instead of code-status sections. Code availability belongs in the `Code` column, so do not split files into "with code" and "paper-only" sections.
 
 ```markdown
 # Category Name
@@ -161,28 +161,18 @@ What belongs here and what does not.
 - Sub-direction B
 - Sub-direction C
 
-## Must-read surveys
+## Sub-direction A
 
-| Date | Venue | Title | Paper | Code | Stars | Citations | Area | Tags | Rec | Comment | Status |
-|---|---|---|---|---|---:|---:|---|---|---|---|---|
+| Date | Venue | Title | Paper | Code | Rec | Comment |
+|---|---|---|---|---|---|---|
 
-## Papers with official code
+## Sub-direction B
 
-| Date | Venue | Title | Paper | Code | Stars | Citations | Area | Tags | Rec | Comment | Status |
-|---|---|---|---|---|---:|---:|---|---|---|---|---|
-
-## Paper-only but important
-
-| Date | Venue | Title | Paper | Code | Stars | Citations | Area | Tags | Rec | Comment | Status |
-|---|---|---|---|---|---:|---:|---|---|---|---|---|
-
-## Benchmarks / datasets / artifacts
-
-| Date | Venue | Title | Paper | Code | Stars | Citations | Area | Tags | Rec | Comment | Status |
-|---|---|---|---|---|---:|---:|---|---|---|---|---|
+| Date | Venue | Title | Paper | Code | Rec | Comment |
+|---|---|---|---|---|---|---|
 
 ## Upstream source lists
 
-| Source repo | Scope | Paper-centric? | Code links? | Activity | Priority | Notes |
-|---|---|---|---|---|---|---|
+| Source repo | Scope | Priority | Notes |
+|---|---|---|---|
 ```

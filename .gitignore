@@ -21,3 +21,11 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+
+### Repository maintenance ###
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+venv/
+.idea/
