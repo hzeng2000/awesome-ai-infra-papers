@@ -12,14 +12,21 @@ This repository is a curated, paper-oriented index for people working on AI infr
 
 The scope intentionally covers both low-level AI systems and application-level systems:
 
-- LLM serving, inference engines, scheduling, batching, disaggregated prefill/decode, distributed inference, and training systems.
+- LLM serving platforms, request scheduling, batching, disaggregated prefill/decode, resource management, distributed runtimes, and training systems.
 - Tensor compilers, MLIR/IR, kernel generation, GPU/NPU optimization, hardware-aware model execution.
-- Efficient inference algorithms, including KV cache optimization, speculative decoding, quantization, compression, MoE inference, long-context inference, efficient reasoning, and on-device inference.
+- Inference optimization methods, including attention/KV optimization, speculative decoding, quantization, compression, MoE inference, long-context inference, efficient reasoning, and on-device inference.
 - RAG, GraphRAG, retrieval-augmented reasoning, knowledge-intensive systems, and RAG evaluation.
 - LLM agents, multi-agent systems, agent memory, tool use, deep research agents, web/computer-use agents, and agent benchmarks.
 - Evaluation, reliability, hallucination, safety, security, prompt-injection defense, and production-facing LLM system assessment.
 
 The repository is **not** meant to be a model leaderboard, product directory, prompt collection, app template gallery, or generic AI tools list.
+
+Boundary rule for the two inference-related files:
+
+- Put a paper in `01` when the main contribution is a serving platform or runtime infrastructure that owns request, session, cache, worker, or cluster lifecycle: serving engine, runtime memory manager, request scheduler, admission control, goodput/SLO policy, multi-tenancy, serverless loading, disaggregated cluster runtime, training runtime, or serving benchmark.
+- Put a paper in `03` when the main contribution is an inference optimization method that makes model execution cheaper inside a runtime: attention/KV method, speculative decoding, quantization, pruning, compression, MoE expert movement/routing, long-context architecture, or efficient reasoning.
+- Example: vLLM/PagedAttention is primarily `01` because the paper's artifact is a deployable serving engine and runtime memory manager; SnapKV, KIVI, Medusa, AWQ, and MoE offloading/routing methods are primarily `03` because they are optimization techniques a serving engine can adopt.
+- Cross-list only for canonical papers that are genuinely central to both views; otherwise choose one primary location.
 
 ## Repository structure
 
@@ -29,9 +36,9 @@ The repository is **not** meant to be a model leaderboard, product directory, pr
 ├── COLLECTION.md
 ├── CONTRIBUTING.md
 ├── LICENSE
-├── 01-awesome-llm-serving-systems.md
+├── 01-awesome-llm-serving-platforms-and-runtime.md
 ├── 02-awesome-ai-compiler-kernels-hardware.md
-├── 03-awesome-efficient-llm-inference.md
+├── 03-awesome-llm-inference-optimization-methods.md
 ├── 04-awesome-rag-knowledge-systems.md
 ├── 05-awesome-llm-agent-systems.md
 ├── 06-awesome-llm-evaluation-safety-reliability.md
@@ -52,9 +59,9 @@ Topic files:
 
 | File | Main scope | Example sub-directions |
 |---|---|---|
-| [`01-awesome-llm-serving-systems.md`](./01-awesome-llm-serving-systems.md) | AI systems, LLM serving, distributed training/inference | inference serving, batching, scheduling, disaggregated serving, training infra, on-device systems |
+| [`01-awesome-llm-serving-platforms-and-runtime.md`](./01-awesome-llm-serving-platforms-and-runtime.md) | LLM serving platforms and runtime infrastructure | serving engines, runtime memory managers, request scheduling, SLO/goodput, multi-tenancy, serverless loading, disaggregated clusters, training infra, serving benchmarks |
 | [`02-awesome-ai-compiler-kernels-hardware.md`](./02-awesome-ai-compiler-kernels-hardware.md) | compiler, kernel, and hardware-aware optimization | tensor compiler, MLIR, auto-tuning, GPU/NPU kernels, LLM-driven kernel generation |
-| [`03-awesome-efficient-llm-inference.md`](./03-awesome-efficient-llm-inference.md) | algorithm-system co-design for efficient LLMs | KV cache, speculative decoding, quantization, pruning, compression, MoE, long context, efficient reasoning |
+| [`03-awesome-llm-inference-optimization-methods.md`](./03-awesome-llm-inference-optimization-methods.md) | LLM inference optimization methods | attention/KV methods, speculative decoding, quantization, pruning, compression, MoE-specific optimization, long-context architectures, efficient reasoning |
 | [`04-awesome-rag-knowledge-systems.md`](./04-awesome-rag-knowledge-systems.md) | RAG and knowledge-intensive systems | RAG survey, GraphRAG, retrieval, RAG-reasoning, RAG evaluation, domain RAG systems |
 | [`05-awesome-llm-agent-systems.md`](./05-awesome-llm-agent-systems.md) | agent systems and application-level research | LLM agents, multi-agent systems, tool use, memory, web/computer agents, coding agents, deep research |
 | [`06-awesome-llm-evaluation-safety-reliability.md`](./06-awesome-llm-evaluation-safety-reliability.md) | eval, safety, security, reliability | LLM eval, agent eval, hallucination, prompt injection, LLM security, safety benchmarks |

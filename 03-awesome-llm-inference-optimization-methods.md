@@ -1,4 +1,4 @@
-# Efficient Inference Algorithms & Model-System Co-design
+# LLM Inference Optimization Methods
 
 <a id="top"></a>
 
@@ -6,13 +6,14 @@
 
 - [Attention kernels and decode-time attention](#attention-kernels-and-decode-time-attention)
 - [KV cache eviction, retention, and compression](#kv-cache-eviction-retention-and-compression)
+- [KV cache offloading, reuse, and memory hierarchy](#kv-cache-offloading-reuse-and-memory-hierarchy)
 - [KV cache quantization](#kv-cache-quantization)
 - [Speculative and parallel decoding](#speculative-and-parallel-decoding)
 - [Weight and activation quantization](#weight-and-activation-quantization)
 - [Pruning, sparsity, and compression](#pruning-sparsity-and-compression)
 - [MoE foundations, runtimes, and workloads](#moe-foundations-runtimes-and-workloads)
 - [MoE expert offloading, caching, and prefetching](#moe-expert-offloading-caching-and-prefetching)
-- [MoE scheduling, expert parallelism, and serving systems](#moe-scheduling-expert-parallelism-and-serving-systems)
+- [MoE scheduling and expert-parallel execution](#moe-scheduling-and-expert-parallel-execution)
 - [MoE routing, load balancing, and expert skipping](#moe-routing-load-balancing-and-expert-skipping)
 - [MoE quantization, compression, and expert merging](#moe-quantization-compression-and-expert-merging)
 - [Long-context and efficient architectures](#long-context-and-efficient-architectures)
@@ -21,7 +22,9 @@
 
 ## Scope
 
-Algorithm and model-system co-design work that reduces latency, memory, bandwidth, energy, or serving cost. Tables are organized by technique family.
+Method-level work that reduces latency, memory, bandwidth, energy, or serving cost during model execution. The organizing unit is the optimization method: attention, KV cache, decoding, quantization, pruning, compression, MoE routing/offloading, long-context architecture, or test-time compute.
+
+Boundary with `01`: serving engines, runtime memory managers, request schedulers, admission-control policies, multi-tenant/serverless systems, cluster resource managers, disaggregated serving platforms, training runtimes, and serving benchmarks belong in `01-awesome-llm-serving-platforms-and-runtime.md`. This file keeps system papers only when the central idea is a specific inference optimization method.
 
 ## Attention kernels and decode-time attention
 
@@ -36,6 +39,7 @@ Algorithm and model-system co-design work that reduces latency, memory, bandwidt
 | 2024-07 | arXiv | FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision | [paper](https://arxiv.org/abs/2407.08608) | [code](https://github.com/Dao-AILab/flash-attention) ![](https://img.shields.io/github/stars/Dao-AILab/flash-attention.svg?style=social) | ★★★★★ | Hopper-oriented attention kernel with asynchrony and FP8 support. |
 | 2024-10 | arXiv | DuoAttention: Efficient Long-Context LLM Inference with Retrieval and Streaming Heads | [paper](https://arxiv.org/abs/2410.10819) | [code](https://github.com/mit-han-lab/duo-attention) ![](https://img.shields.io/github/stars/mit-han-lab/duo-attention.svg?style=social) | ★★★★☆ | Separates retrieval heads from streaming heads to reduce long-context KV memory and latency. |
 | 2025-01 | MLSys 2025 | FlashInfer: Efficient and Customizable Attention Engine for LLM Inference Serving | [paper](https://arxiv.org/abs/2501.01005) | [code](https://github.com/flashinfer-ai/flashinfer) ![](https://img.shields.io/github/stars/flashinfer-ai/flashinfer.svg?style=social) | ★★★★★ | Flexible attention engine for paged, ragged, quantized, and compressed KV layouts. |
+| 2025-02 | MLSys 2025 | LServe: Efficient Long-sequence LLM Serving with Unified Sparse Attention | [paper](https://arxiv.org/abs/2502.14866) | - | ★★★★☆ | Unified sparse-attention path for long-sequence prefill and decode. |
 | 2026-02 | PPoPP 2026 | FlashAttention-T: Towards Fully Tensorized Attention by Exploiting Tensor-Vector Parallelism | [paper](https://ppopp26.sigplan.org/details/PPoPP-2026-papers/15/FlashAttention-T-Towards-Fully-Tensorized-Attention-by-Exploiting-Tensor-Vector-Para) | [artifact](https://zenodo.org/records/17673796) | ★★★★☆ | Tensorizes softmax work inside fused attention to reduce underutilized vector intervals. |
 | 2026-02 | PPoPP 2026 | MetaAttention: A Unified and Performant Attention Framework Across Hardware Backends | [paper](https://ppopp26.sigplan.org/details/PPoPP-2026-papers/34/MetaAttention-A-Unified-and-Performant-Attention-Framework-Across-Hardware-Backends) | - | ★★★★☆ | Generates performant implementations for attention variants across hardware backends. |
 | 2026-04 | arXiv | Flux Attention: Context-Aware Hybrid Attention for Efficient LLMs Inference | [paper](https://arxiv.org/abs/2604.07394) | [code](https://github.com/qqtang-code/FluxAttention) ![](https://img.shields.io/github/stars/qqtang-code/FluxAttention.svg?style=social) | ★★★☆☆ | Recent layer-level routing between full and sparse attention for long-context speedups. |
@@ -67,7 +71,21 @@ Algorithm and model-system co-design work that reduces latency, memory, bandwidt
 | 2025-09 | Findings EMNLP 2025 | EvolKV: Evolutionary KV Cache Compression for LLM Inference | [paper](https://arxiv.org/abs/2509.08315) | - | ★★★☆☆ | Evolutionary search over cache policies for memory/quality trade-offs. |
 | 2025-09 | arXiv | KVCompose: Efficient Structured KV Cache Compression with Composite Tokens | [paper](https://arxiv.org/abs/2509.05165) | - | ★★★☆☆ | Structured composite-token compression compatible with standard decoding pipelines. |
 | 2026-03 | arXiv | ARKV: Adaptive and Resource-Efficient KV Cache Management under Limited Memory Budget for Long-Context Inference in LLMs | [paper](https://arxiv.org/abs/2603.08727) | [code](https://github.com/Large-scale-Sustainable-Computing-LSC/ARKV) ![](https://img.shields.io/github/stars/Large-scale-Sustainable-Computing-LSC/ARKV.svg?style=social) | ★★★☆☆ | Tri-state retain/quantize/evict cache policy for tight memory budgets. |
-| 2026-04 | arXiv | CacheFlow: Efficient LLM Serving with 3D-Parallel KV Cache Restoration | [paper](https://arxiv.org/abs/2604.25080) | - | ★★★☆☆ | Algorithm/system method for overlapping KV restoration over tokens, layers, and GPUs. |
+
+## KV cache offloading, reuse, and memory hierarchy
+
+[Back to top](#top)
+
+| Date | Venue | Title | Paper | Code | Rec | Comment |
+|---|---|---|---|---|---|---|
+| 2023-10 | arXiv | CacheGen: KV Cache Compression and Streaming for Fast Large Language Model Serving | [paper](https://arxiv.org/abs/2310.07240) | - | ★★★★☆ | Compresses and streams reusable KV cache to lower context-fetch latency. |
+| 2025-03 | arXiv | FastCache: Optimizing Multimodal LLM Serving through Lightweight KV-Cache Compression Framework | [paper](https://arxiv.org/abs/2503.08461) | - | ★★★☆☆ | Multimodal KV compression and cache lifecycle management. |
+| 2025-06 | arXiv | Breaking the Boundaries of Long-Context LLM Inference: Adaptive KV Management on a Single Commodity GPU | [paper](https://arxiv.org/abs/2506.20187) | - | ★★★☆☆ | Hierarchical GPU-CPU-disk KV management for private single-GPU long-context inference. |
+| 2025-11 | arXiv | CLO: Efficient LLM Inference System with CPU-Light KVCache Offloading via Algorithm-System Co-Design | [paper](https://arxiv.org/abs/2511.14510) | - | ★★★☆☆ | CPU-light KV offload path for reducing PCIe and CPU overhead during decoding. |
+| 2026-02 | arXiv | HillInfer: Efficient Long-Context LLM Inference on the Edge with Hierarchical KV Eviction using SmartSSD | [paper](https://arxiv.org/abs/2602.18750) | - | ★★★☆☆ | SmartSSD-assisted KV eviction for edge long-context inference. |
+| 2026-04 | arXiv | PolyKV: A Shared Asymmetrically-Compressed KV Cache Pool for Multi-Agent LLM Inference | [paper](https://arxiv.org/abs/2604.24971) | - | ★★★☆☆ | Shared compressed KV cache pool for concurrent multi-agent inference. |
+| 2026-04 | arXiv | CacheFlow: Efficient LLM Serving with 3D-Parallel KV Cache Restoration | [paper](https://arxiv.org/abs/2604.25080) | - | ★★★☆☆ | Restores offloaded/compressed KV cache with token-layer-GPU parallelism. |
+| 2026-05 | arXiv | Tutti: Making SSD-Backed KV Cache Practical for Long-Context LLM Serving | [paper](https://arxiv.org/abs/2605.03375) | - | ★★★☆☆ | SSD-backed KV cache design for long-context SLO pressure. |
 
 ## KV cache quantization
 
@@ -193,7 +211,7 @@ Algorithm and model-system co-design work that reduces latency, memory, bandwidt
 | 2026-04 | arXiv | FluxMoE: Decoupling Expert Residency for High-Performance MoE Serving | [paper](https://arxiv.org/abs/2604.02715) | - | ★★★☆☆ | Decouples expert-parameter residency from persistent GPU memory to free capacity for serving state. |
 | 2026-04 | arXiv | Efficient Mixture-of-Experts LLM Inference with Apple Silicon NPUs | [paper](https://arxiv.org/abs/2604.18788) | - | ★★★☆☆ | Targets MoE routing, dynamic shapes, and small-kernel overheads on Apple NPUs. |
 
-## MoE scheduling, expert parallelism, and serving systems
+## MoE scheduling and expert-parallel execution
 
 [Back to top](#top)
 

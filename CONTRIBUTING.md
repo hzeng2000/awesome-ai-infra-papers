@@ -56,10 +56,11 @@ Recommendation labels should be conservative:
 
 1. Add the paper to the most specific topic file.
 2. Put it under the most specific technical sub-direction.
-3. Cross-list only when the paper is genuinely central to multiple topic areas.
-4. Prefer updating an existing row over creating duplicates.
-5. Keep comments short and judgment-oriented.
-6. Run the local link check before submitting:
+3. For `01` vs `03`, use the paper's primary artifact as the tie-breaker: serving platforms and runtime infrastructure that own request/session/cache/worker lifecycle go in `01`; inference optimization methods such as KV compression, speculative decoding, quantization, pruning, or MoE expert movement/routing go in `03`.
+4. Cross-list only when the paper is genuinely central to multiple topic areas.
+5. Prefer updating an existing row over creating duplicates.
+6. Keep comments short and judgment-oriented.
+7. Run the local link check before submitting:
 
 ```bash
 python3 scripts/check_links.py --local-only

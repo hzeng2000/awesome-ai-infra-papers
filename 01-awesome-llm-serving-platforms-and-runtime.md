@@ -1,41 +1,39 @@
-# Systems & Serving
+# LLM Serving Platforms & Runtime Infrastructure
 
 <a id="top"></a>
 
 ## Contents
 
-- [Serving engines and KV memory management](#serving-engines-and-kv-memory-management)
-- [Scheduling, batching, and goodput](#scheduling-batching-and-goodput)
-- [Multi-tenant and serverless serving](#multi-tenant-and-serverless-serving)
-- [Long-context and distributed inference](#long-context-and-distributed-inference)
+- [Serving engines and runtime memory management](#serving-engines-and-runtime-memory-management)
+- [Request scheduling, batching, and goodput](#request-scheduling-batching-and-goodput)
+- [Multi-tenant, adapter, and serverless serving](#multi-tenant-adapter-and-serverless-serving)
+- [Disaggregated, edge, and memory-hierarchy serving](#disaggregated-edge-and-memory-hierarchy-serving)
 - [Distributed training systems](#distributed-training-systems)
 - [Benchmarks and simulation](#benchmarks-and-simulation)
 - [Upstream source lists](#upstream-source-lists)
 
 ## Scope
 
-AI systems papers for serving, scheduling, batching, memory management, disaggregated inference, distributed training, and deployment on constrained devices. Tables are organized by technical sub-direction instead of by whether code exists.
+Papers whose primary artifact is a serving platform or runtime infrastructure layer that owns request, session, cache, worker, or cluster lifecycle: serving engines, runtime memory managers, request scheduling, batching, admission control, SLO/goodput policy, multi-tenancy, serverless loading, disaggregated runtime design, distributed training, and deployment runtimes on constrained devices.
 
-## Serving engines and KV memory management
+Boundary with `03`: this file is for service/runtime/resource-management concerns across requests and workers. vLLM/PagedAttention is primary here because the paper's artifact is a deployable serving engine and runtime memory manager. Technique-level inference methods such as KV compression, speculative decoding, quantization, pruning, or MoE expert movement/routing belong in `03-awesome-llm-inference-optimization-methods.md`, even when the paper includes a serving prototype.
+
+## Serving engines and runtime memory management
 
 [Back to top](#top)
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
 | 2022-07 | OSDI 2022 | Orca: A Distributed Serving System for Transformer-Based Generative Models | [paper](https://www.usenix.org/conference/osdi22/presentation/yu) | - | ★★★★★ | Foundational paper for iteration-level scheduling and continuous batching. |
-| 2023-09 | SOSP 2023 | Efficient Memory Management for Large Language Model Serving with PagedAttention | [paper](https://arxiv.org/abs/2309.06180) | [code](https://github.com/vllm-project/vllm) ![](https://img.shields.io/github/stars/vllm-project/vllm.svg?style=social) | ★★★★★ | Introduces PagedAttention and the vLLM serving architecture. |
+| 2023-09 | SOSP 2023 | Efficient Memory Management for Large Language Model Serving with PagedAttention | [paper](https://arxiv.org/abs/2309.06180) | [code](https://github.com/vllm-project/vllm) ![](https://img.shields.io/github/stars/vllm-project/vllm.svg?style=social) | ★★★★★ | Primary placement is here because vLLM is a deployable serving engine and runtime memory manager. |
 | 2024-05 | arXiv | vAttention: Dynamic Memory Management for Serving LLMs without PagedAttention | [paper](https://arxiv.org/abs/2405.04437) | [code](https://github.com/microsoft/vattention) ![](https://img.shields.io/github/stars/microsoft/vattention.svg?style=social) | ★★★★☆ | Uses CUDA virtual memory to keep KV cache virtually contiguous while allocating physical pages on demand. |
 | 2023-12 | NeurIPS 2024 | SGLang: Efficient Execution of Structured Language Model Programs | [paper](https://arxiv.org/abs/2312.07104) | [code](https://github.com/sgl-project/sglang) ![](https://img.shields.io/github/stars/sgl-project/sglang.svg?style=social) | ★★★★★ | Important serving/runtime system for structured generation, radix cache, and complex LLM programs. |
 | 2024-06 | arXiv | MemServe: Context Caching for Disaggregated LLM Serving with Elastic Memory Pool | [paper](https://arxiv.org/abs/2406.17565) | - | ★★★★☆ | Connects prefix/context caching with a disaggregated memory pool and locality-aware scheduling. |
 | 2024-07 | arXiv | Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving | [paper](https://arxiv.org/abs/2407.00079) | [code](https://github.com/kvcache-ai/Mooncake) ![](https://img.shields.io/github/stars/kvcache-ai/Mooncake.svg?style=social) | ★★★★★ | Production-inspired design that treats KV cache as the central resource for long-context serving. |
 | 2024-07 | arXiv | Preble: Efficient Distributed Prompt Scheduling for LLM Serving | [paper](https://arxiv.org/abs/2407.00023) | - | ★★★★☆ | Routes prompts to maximize cross-request prefix sharing in distributed serving. |
-| 2025-11 | arXiv | CLO: Efficient LLM Inference System with CPU-Light KVCache Offloading via Algorithm-System Co-Design | [paper](https://arxiv.org/abs/2511.14510) | - | ★★★☆☆ | CPU-light KV offload path for reducing PCIe/CPU overhead in long-context decoding. |
 | 2025-10 | arXiv | LMCache: An Efficient KV Cache Layer for Enterprise-Scale LLM Inference | [paper](https://arxiv.org/abs/2510.09665) | [code](https://github.com/LMCache/LMCache) ![](https://img.shields.io/github/stars/LMCache/LMCache.svg?style=social) | ★★★★☆ | Shared KV cache layer for offloading, reuse, and cross-engine cache transfer. |
-| 2026-04 | arXiv | PolyKV: A Shared Asymmetrically-Compressed KV Cache Pool for Multi-Agent LLM Inference | [paper](https://arxiv.org/abs/2604.24971) | - | ★★★☆☆ | Shared compressed KV cache pool for concurrent multi-agent inference. |
-| 2026-04 | arXiv | CacheFlow: Efficient LLM Serving with 3D-Parallel KV Cache Restoration | [paper](https://arxiv.org/abs/2604.25080) | - | ★★★☆☆ | Restores offloaded/compressed KV cache with token-layer-GPU parallelism. |
-| 2026-05 | arXiv | Tutti: Making SSD-Backed KV Cache Practical for Long-Context LLM Serving | [paper](https://arxiv.org/abs/2605.03375) | - | ★★★☆☆ | Very recent SSD-backed KV cache design that targets long-context SLO pressure. |
 
-## Scheduling, batching, and goodput
+## Request scheduling, batching, and goodput
 
 [Back to top](#top)
 
@@ -55,7 +53,7 @@ AI systems papers for serving, scheduling, batching, memory management, disaggre
 | 2026-02 | ICML 2026 | Efficient Multi-round LLM Inference over Disaggregated Serving | [paper](https://arxiv.org/abs/2602.14516) | - | ★★★★☆ | AMPD handles interleaved prefill/decode workloads in multi-round agent and RAG serving. |
 | 2026-05 | ICML 2026 | THETA: Threshold-Based Exclusive Batching for Memory-Bandwidth-Constrained LLM Inference | [paper](https://rucnyz.github.io/publications/) | - | ★★★☆☆ | Revisits exclusive batching under memory-bandwidth-constrained GPUs. |
 
-## Multi-tenant and serverless serving
+## Multi-tenant, adapter, and serverless serving
 
 [Back to top](#top)
 
@@ -67,22 +65,17 @@ AI systems papers for serving, scheduling, batching, memory management, disaggre
 | 2025-05 | arXiv | ServerlessLoRA: Minimizing Latency and Cost in Serverless Inference for LoRA-Based LLMs | [paper](https://arxiv.org/abs/2505.14468) | - | ★★★☆☆ | Recent serverless design specialized for LoRA artifact loading and contention. |
 | 2025-12 | arXiv | Efficient Multi-Adapter LLM Serving via Cross-Model KV-Cache Reuse with Activated LoRA | [paper](https://arxiv.org/abs/2512.17910) | - | ★★★☆☆ | Extends adapter serving with cross-model KV reuse for LoRA-heavy workloads. |
 
-## Long-context and distributed inference
+## Disaggregated, edge, and memory-hierarchy serving
 
 [Back to top](#top)
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
 | 2024-01 | arXiv | Infinite-LLM: Efficient LLM Service for Long Context with DistAttention and Distributed KVCache | [paper](https://arxiv.org/abs/2401.02669) | - | ★★★★☆ | Distributes attention and KV cache to push serving toward very long contexts. |
-| 2023-10 | arXiv | CacheGen: KV Cache Compression and Streaming for Fast Large Language Model Serving | [paper](https://arxiv.org/abs/2310.07240) | - | ★★★★☆ | Compresses and streams reusable KV cache for lower context-fetch latency. |
 | 2023-03 | ICML 2023 | FlexGen: High-throughput Generative Inference of Large Language Models with a Single GPU | [paper](https://arxiv.org/abs/2303.06865) | [code](https://github.com/FMInference/FlexGen) ![](https://img.shields.io/github/stars/FMInference/FlexGen.svg?style=social) | ★★★★☆ | Classic offloading-oriented inference system for memory-constrained GPUs. |
 | 2023-12 | arXiv | PowerInfer: Fast Large Language Model Serving with a Consumer-grade GPU | [paper](https://arxiv.org/abs/2312.12456) | [code](https://github.com/SJTU-IPADS/PowerInfer) ![](https://img.shields.io/github/stars/SJTU-IPADS/PowerInfer.svg?style=social) | ★★★★☆ | Exploits activation locality to make consumer-GPU serving practical. |
 | 2024-03 | arXiv | LLM in a Flash: Efficient Large Language Model Inference with Limited Memory | [paper](https://arxiv.org/abs/2312.11514) | - | ★★★☆☆ | Useful reference for flash-storage-aware inference under tight memory. |
-| 2025-02 | MLSys 2025 | LServe: Efficient Long-sequence LLM Serving with Unified Sparse Attention | [paper](https://arxiv.org/abs/2502.14866) | - | ★★★★☆ | Unified sparse attention serving path for long-sequence prefill and decode. |
-| 2025-03 | arXiv | FastCache: Optimizing Multimodal LLM Serving through Lightweight KV-Cache Compression Framework | [paper](https://arxiv.org/abs/2503.08461) | - | ★★★☆☆ | Multimodal-serving KV cache compression and lifecycle management. |
 | 2025-06 | arXiv | Parallel CPU-GPU Execution for LLM Inference on Constrained GPUs | [paper](https://arxiv.org/abs/2506.03296) | - | ★★★☆☆ | Recent hybrid scheduling direction for small-GPU deployments. |
-| 2025-06 | arXiv | Breaking the Boundaries of Long-Context LLM Inference: Adaptive KV Management on a Single Commodity GPU | [paper](https://arxiv.org/abs/2506.20187) | - | ★★★☆☆ | Hierarchical GPU-CPU-disk KV management for private single-GPU long-context inference. |
-| 2026-02 | arXiv | HillInfer: Efficient Long-Context LLM Inference on the Edge with Hierarchical KV Eviction using SmartSSD | [paper](https://arxiv.org/abs/2602.18750) | - | ★★★☆☆ | Edge-oriented SmartSSD-assisted KV eviction and memory hierarchy design. |
 
 ## Distributed training systems
 
@@ -99,7 +92,6 @@ AI systems papers for serving, scheduling, batching, memory management, disaggre
 | 2025-02 | PPoPP 2025 | ATTNChecker: Highly-Optimized Fault Tolerant Attention for Large Language Model Training | [paper](https://www.pnnl.gov/publications/attnchecker-highly-optimized-fault-tolerant-attention-large-language-model-training) | [artifact](https://zenodo.org/records/14503617) | ★★★★☆ | ABFT-style attention protection that reduces checkpoint/restart recovery cost. |
 | 2025-02 | PPoPP 2025 | Mario: Near Zero-cost Activation Checkpointing in Pipeline Parallelism | [paper](https://ppopp25.sigplan.org/details/PPoPP-2025-Main-Conference-1/29/Mario-Near-Zero-cost-Activation-Checkpointing-in-Pipeline-Parallelism) | - | ★★★★☆ | Pipeline schedule/search system that overlaps recomputation to reduce activation memory. |
 | 2025-02 | PPoPP 2025 | WeiPipe: Weight Pipeline Parallelism for Communication-Effective Long-Context Large Model Training | [paper](https://maruyamaaya.github.io/publication/weipipe/) | - | ★★★★☆ | Weight-passing pipeline parallelism for long-context training communication pressure. |
-| 2025-02 | PPoPP 2025 | Harnessing Inter-GPU Shared Memory for Seamless MoE Communication-Computation Fusion | [paper](https://ppopp25.sigplan.org/track/PPoPP-2025-Main-Conference-1) | - | ★★★★☆ | Fuses MoE expert communication and computation through inter-GPU shared memory. |
 | 2025-02 | PPoPP 2025 | COMPSO: Optimizing Gradient Compression for Distributed Training with Second-Order Optimizers | [paper](https://researchwith.stevens.edu/en/publications/compso-optimizing-gradient-compression-for-distributed-training-w/) | - | ★★★☆☆ | Communication compression for second-order optimizer training workloads. |
 | 2026-02 | PPoPP 2026 | COCCL: A Collective Communication Library Supporting Easy Integration and Configuration of Customized Compression for Scalable LLM Training | [paper](https://ppopp26.sigplan.org/details/PPoPP-2026-papers/22/COCCL-A-Collective-Communication-Library-Supporting-Easy-Integration-and-Configurati) | - | ★★★★☆ | Compression-aware collective library for 3D-parallel LLM training. |
 

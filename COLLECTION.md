@@ -10,16 +10,18 @@ This file is the root-level map of the repository. It defines the top-level taxo
 
 | ID | Category | Topic file | Main sub-directions |
 |---|---|---|---|
-| 01 | Systems & Serving | `01-awesome-llm-serving-systems.md` | LLM serving, inference engine, training system, distributed inference/training, batching/scheduling, disaggregated prefill/decode, on-device systems |
+| 01 | LLM Serving Platforms & Runtime Infrastructure | `01-awesome-llm-serving-platforms-and-runtime.md` | serving engines, runtime memory managers, request scheduling, SLO/goodput, multi-tenancy, serverless loading, disaggregated clusters, training systems, serving benchmarks |
 | 02 | Compiler, Kernels & Hardware-aware Optimization | `02-awesome-ai-compiler-kernels-hardware.md` | tensor compiler, MLIR/IR, auto-tuning, compiler ML, GPU/NPU kernel generation, hardware-aware model execution |
-| 03 | Efficient Inference Algorithms & Model-System Co-design | `03-awesome-efficient-llm-inference.md` | KV cache, speculative decoding, quantization, pruning, compression, MoE inference, long context, efficient reasoning, efficient architecture |
+| 03 | LLM Inference Optimization Methods | `03-awesome-llm-inference-optimization-methods.md` | attention/KV methods, speculative decoding, quantization, pruning, compression, MoE-specific optimization, long-context architecture, efficient reasoning |
 | 04 | RAG & Knowledge-intensive Systems | `04-awesome-rag-knowledge-systems.md` | RAG survey, GraphRAG, retrieval, RAG-reasoning, RAG evaluation, knowledge-intensive applications |
 | 05 | Agents & Application-level Systems | `05-awesome-llm-agent-systems.md` | LLM agents, multi-agent systems, agent memory, tool use, web/computer-use agents, coding agents, deep research agents |
 | 06 | Evaluation, Safety & Reliability | `06-awesome-llm-evaluation-safety-reliability.md` | LLM evaluation, agent benchmarks, RAG evaluation, hallucination, safety, prompt injection, LLM security, reliability |
 
-## Category 01 — Systems & Serving
+## Category 01 — LLM Serving Platforms & Runtime Infrastructure
 
-Use this category for papers and paper lists about AI systems, LLM systems, serving, training infrastructure, scheduling, distributed execution, and device-level deployment.
+Use this category for papers and paper lists whose main contribution is a serving platform or runtime infrastructure layer that owns request, session, cache, worker, or cluster lifecycle: serving engines, runtime memory managers, request scheduling, admission control, SLO/goodput policy, multi-tenancy, serverless loading, disaggregated cluster runtime, training runtime, deployment runtime, or serving benchmarks.
+
+Example: vLLM/PagedAttention is primary Category 01 because the paper's artifact is a deployable serving engine and runtime memory manager. If the main contribution is a specific inference optimization method such as KV compression, speculative decoding, quantization, pruning, or MoE expert movement/routing, place it in Category 03 even when the paper contains a prototype serving system.
 
 | Source repo | Sub-direction | Why include | Priority | Notes |
 |---|---|---|---|---|
@@ -50,9 +52,11 @@ Use this category for compiler stacks, tensor programs, kernel optimization, har
 | [flagos-ai/awesome-LLM-driven-kernel-generation](https://github.com/flagos-ai/awesome-LLM-driven-kernel-generation) | LLM-driven kernel generation | Tracks papers on automated kernel generation and agentic kernel optimization. | P0 | Emerging, highly relevant for AI infra. |
 | [ScalingIntelligence/KernelBench](https://github.com/ScalingIntelligence/KernelBench) | Kernel generation benchmark | Benchmark/environment for evaluating whether LLMs can generate correct and efficient GPU kernels. | P1 | Not an awesome list, but a key benchmark/paper artifact. |
 
-## Category 03 — Efficient Inference Algorithms & Model-System Co-design
+## Category 03 — LLM Inference Optimization Methods
 
-Use this category for algorithmic and system co-design techniques that reduce latency, memory, cost, or hardware pressure.
+Use this category for method-level work that reduces latency, memory, bandwidth, energy, or serving cost during model execution. The organizing unit is the optimization method, not the request-serving platform.
+
+For serving engines, runtime memory managers, request schedulers, resource managers, serverless systems, disaggregated clusters, and training runtimes, use Category 01.
 
 | Source repo | Sub-direction | Why include | Priority | Notes |
 |---|---|---|---|---|
