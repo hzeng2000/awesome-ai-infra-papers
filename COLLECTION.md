@@ -1,21 +1,21 @@
 # Collection Map
 
 **Suggested repository name:** `awesome-ai-infra-papers`  
-**Last collected:** 2026-05-15, Asia/Shanghai  
+**Last collected:** 2026-05-16, Asia/Shanghai
 **Collection principle:** paper-first, infra-oriented, no pure model leaderboard, no pure app/tool directory.
 
-This file is the root-level map of the repository. It defines the top-level taxonomy and seed upstream repositories to mine when building category-level paper tables.
+This file is the root-level map of the repository. It defines the top-level taxonomy and seed upstream repositories to mine when building topic-level paper tables.
 
 ## Top-level taxonomy
 
-| ID | Category | Category file | Main sub-directions |
+| ID | Category | Topic file | Main sub-directions |
 |---|---|---|---|
-| 01 | Systems & Serving | `categories/01-systems-serving.md` | LLM serving, inference engine, training system, distributed inference/training, batching/scheduling, disaggregated prefill/decode, on-device systems |
-| 02 | Compiler, Kernels & Hardware-aware Optimization | `categories/02-compiler-kernels-hardware.md` | tensor compiler, MLIR/IR, auto-tuning, compiler ML, GPU/NPU kernel generation, hardware-aware model execution |
-| 03 | Efficient Inference Algorithms & Model-System Co-design | `categories/03-efficient-inference-algorithms.md` | KV cache, speculative decoding, quantization, pruning, compression, MoE inference, long context, efficient reasoning, efficient architecture |
-| 04 | RAG & Knowledge-intensive Systems | `categories/04-rag-knowledge-systems.md` | RAG survey, GraphRAG, retrieval, RAG-reasoning, RAG evaluation, knowledge-intensive applications |
-| 05 | Agents & Application-level Systems | `categories/05-agents-application-systems.md` | LLM agents, multi-agent systems, agent memory, tool use, web/computer-use agents, coding agents, deep research agents |
-| 06 | Evaluation, Safety & Reliability | `categories/06-evaluation-safety-reliability.md` | LLM evaluation, agent benchmarks, RAG evaluation, hallucination, safety, prompt injection, LLM security, reliability |
+| 01 | Systems & Serving | `01-awesome-llm-serving-systems.md` | LLM serving, inference engine, training system, distributed inference/training, batching/scheduling, disaggregated prefill/decode, on-device systems |
+| 02 | Compiler, Kernels & Hardware-aware Optimization | `02-awesome-ai-compiler-kernels-hardware.md` | tensor compiler, MLIR/IR, auto-tuning, compiler ML, GPU/NPU kernel generation, hardware-aware model execution |
+| 03 | Efficient Inference Algorithms & Model-System Co-design | `03-awesome-efficient-llm-inference.md` | KV cache, speculative decoding, quantization, pruning, compression, MoE inference, long context, efficient reasoning, efficient architecture |
+| 04 | RAG & Knowledge-intensive Systems | `04-awesome-rag-knowledge-systems.md` | RAG survey, GraphRAG, retrieval, RAG-reasoning, RAG evaluation, knowledge-intensive applications |
+| 05 | Agents & Application-level Systems | `05-awesome-llm-agent-systems.md` | LLM agents, multi-agent systems, agent memory, tool use, web/computer-use agents, coding agents, deep research agents |
+| 06 | Evaluation, Safety & Reliability | `06-awesome-llm-evaluation-safety-reliability.md` | LLM evaluation, agent benchmarks, RAG evaluation, hallucination, safety, prompt injection, LLM security, reliability |
 
 ## Category 01 — Systems & Serving
 
@@ -33,7 +33,7 @@ Use this category for papers and paper lists about AI systems, LLM systems, serv
 | [Hsword/Awesome-Machine-Learning-System-Papers](https://github.com/Hsword/Awesome-Machine-Learning-System-Papers) | ML systems | Curated ML system papers in recent years. | P1 | Good broader MLSys background. |
 | [Shenggan/awesome-distributed-ml](https://github.com/Shenggan/awesome-distributed-ml) | Distributed ML | Distributed training/inference papers and resources. | P2 | Older/broader; filter strongly. |
 | [bharathgs/Awesome-Distributed-Deep-Learning](https://github.com/bharathgs/Awesome-Distributed-Deep-Learning) | Distributed DL | Distributed DL frameworks, papers, blogs, and books. | P2 | Mostly background; not LLM-specific. |
-| [jeho-lee/Awesome-On-Device-AI](https://github.com/jeho-lee/Awesome-On-Device-AI) | On-device AI systems | Efficient on-device AI systems with papers, engines, and benchmarks. | P1 | Good edge/mobile systems bridge. |
+| [jeho-lee/Awesome-On-Device-AI-Systems](https://github.com/jeho-lee/Awesome-On-Device-AI-Systems) | On-device AI systems | Efficient on-device AI systems with papers, engines, and benchmarks. | P1 | Good edge/mobile systems bridge. |
 | [iamseonghoon/Awesome-On-Device-AI-Inference](https://github.com/iamseonghoon/Awesome-On-Device-AI-Inference) | On-device inference | Academic work focused on efficient AI inference on mobile/edge devices. | P1 | Strong fit for resource-constrained inference. |
 | [LumosJiang/Awesome-On-Device-LLMs](https://github.com/LumosJiang/Awesome-On-Device-LLMs) | On-device LLMs | Papers on on-device LLMs, model compression, and system optimization. | P1 | Narrow and paper-centric. |
 | [jjxu217/Awesome-LLMs-on-device](https://github.com/jjxu217/Awesome-LLMs-on-device) | On-device LLM survey | Survey hub for LLMs designed for device deployment. | P2 | Use paper/survey sections only. |
@@ -144,9 +144,9 @@ These repositories can be useful, but they are not primary sources for this repo
 | `quome-cloud/awesome-coding-agents`, `ai-for-developers/awesome-ai-coding-tools`, `hesreallyhim/awesome-claude-code` | Coding-agent/tooling catalogs; not paper-first. |
 | Generic model lists / model zoos / leaderboards | Out of scope unless tied to systems/evaluation papers. |
 
-## Category-file internal structure
+## Topic-file internal structure
 
-Each category file should use concrete technical sub-directions instead of code-status sections. Code availability belongs in the `Code` column, so do not split files into "with code" and "paper-only" sections.
+Each topic file should use concrete technical sub-directions instead of code-status sections. Code availability belongs in the `Code` column, so do not split files into "with code" and "paper-only" sections.
 
 ```markdown
 # Category Name

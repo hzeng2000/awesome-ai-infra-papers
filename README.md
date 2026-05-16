@@ -3,7 +3,7 @@
 > A paper-first reading map for AI infrastructure, LLM systems, efficient inference, RAG, agents, and reliable LLM applications.
 
 **Suggested repository name:** `awesome-ai-infra-papers`  
-**Last collected:** 2026-05-15, Asia/Shanghai  
+**Last collected:** 2026-05-16, Asia/Shanghai  
 **Primary language:** English titles + bilingual notes are welcome. Chinese comments are acceptable when they help readers quickly triage.
 
 ## What is this repository?
@@ -29,13 +29,12 @@ The repository is **not** meant to be a model leaderboard, product directory, pr
 ├── COLLECTION.md
 ├── CONTRIBUTING.md
 ├── LICENSE
-├── categories/
-│   ├── 01-systems-serving.md
-│   ├── 02-compiler-kernels-hardware.md
-│   ├── 03-efficient-inference-algorithms.md
-│   ├── 04-rag-knowledge-systems.md
-│   ├── 05-agents-application-systems.md
-│   └── 06-evaluation-safety-reliability.md
+├── 01-awesome-llm-serving-systems.md
+├── 02-awesome-ai-compiler-kernels-hardware.md
+├── 03-awesome-efficient-llm-inference.md
+├── 04-awesome-rag-knowledge-systems.md
+├── 05-awesome-llm-agent-systems.md
+├── 06-awesome-llm-evaluation-safety-reliability.md
 └── scripts/
     ├── README.md
     └── check_links.py
@@ -49,16 +48,16 @@ Core files:
 - [`LICENSE`](./LICENSE): CC-BY-4.0 licensing note for curated text and documentation.
 - [`scripts/check_links.py`](./scripts/check_links.py): local and HTTP Markdown link checker.
 
-Category files:
+Topic files:
 
 | File | Main scope | Example sub-directions |
 |---|---|---|
-| [`categories/01-systems-serving.md`](./categories/01-systems-serving.md) | AI systems, LLM serving, distributed training/inference | inference serving, batching, scheduling, disaggregated serving, training infra, on-device systems |
-| [`categories/02-compiler-kernels-hardware.md`](./categories/02-compiler-kernels-hardware.md) | compiler, kernel, and hardware-aware optimization | tensor compiler, MLIR, auto-tuning, GPU/NPU kernels, LLM-driven kernel generation |
-| [`categories/03-efficient-inference-algorithms.md`](./categories/03-efficient-inference-algorithms.md) | algorithm-system co-design for efficient LLMs | KV cache, speculative decoding, quantization, pruning, compression, MoE, long context, efficient reasoning |
-| [`categories/04-rag-knowledge-systems.md`](./categories/04-rag-knowledge-systems.md) | RAG and knowledge-intensive systems | RAG survey, GraphRAG, retrieval, RAG-reasoning, RAG evaluation, domain RAG systems |
-| [`categories/05-agents-application-systems.md`](./categories/05-agents-application-systems.md) | agent systems and application-level research | LLM agents, multi-agent systems, tool use, memory, web/computer agents, coding agents, deep research |
-| [`categories/06-evaluation-safety-reliability.md`](./categories/06-evaluation-safety-reliability.md) | eval, safety, security, reliability | LLM eval, agent eval, hallucination, prompt injection, LLM security, safety benchmarks |
+| [`01-awesome-llm-serving-systems.md`](./01-awesome-llm-serving-systems.md) | AI systems, LLM serving, distributed training/inference | inference serving, batching, scheduling, disaggregated serving, training infra, on-device systems |
+| [`02-awesome-ai-compiler-kernels-hardware.md`](./02-awesome-ai-compiler-kernels-hardware.md) | compiler, kernel, and hardware-aware optimization | tensor compiler, MLIR, auto-tuning, GPU/NPU kernels, LLM-driven kernel generation |
+| [`03-awesome-efficient-llm-inference.md`](./03-awesome-efficient-llm-inference.md) | algorithm-system co-design for efficient LLMs | KV cache, speculative decoding, quantization, pruning, compression, MoE, long context, efficient reasoning |
+| [`04-awesome-rag-knowledge-systems.md`](./04-awesome-rag-knowledge-systems.md) | RAG and knowledge-intensive systems | RAG survey, GraphRAG, retrieval, RAG-reasoning, RAG evaluation, domain RAG systems |
+| [`05-awesome-llm-agent-systems.md`](./05-awesome-llm-agent-systems.md) | agent systems and application-level research | LLM agents, multi-agent systems, tool use, memory, web/computer agents, coding agents, deep research |
+| [`06-awesome-llm-evaluation-safety-reliability.md`](./06-awesome-llm-evaluation-safety-reliability.md) | eval, safety, security, reliability | LLM eval, agent eval, hallucination, prompt injection, LLM security, safety benchmarks |
 
 ## Curation standards
 
@@ -130,14 +129,14 @@ This is a guide, not a strict formula.
 
 ## Entry template
 
-Use this compact table format inside each sub-direction section. Category files should be organized like paper-list repositories such as `Zefan-Cai/Awesome-LLM-KV-Cache`: concrete technical sub-directions first, then a short table for each sub-direction.
+Use this compact table format inside each sub-direction section. Topic files should be organized like paper-list repositories such as `Zefan-Cai/Awesome-LLM-KV-Cache`: concrete technical sub-directions first, then a short table for each sub-direction.
 
 ```markdown
 ## Sub-direction name
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
-| 2025-02 | MLSys 2025 | Paper title | [paper](https://...) | [code](https://...) | ★★★★★ | One-sentence reason why this matters. |
+| 2025-02 | MLSys 2025 | Paper title | [paper](https://...) | [code](https://github.com/owner/repo) ![](https://img.shields.io/github/stars/owner/repo.svg?style=social) | ★★★★★ | One-sentence reason why this matters. |
 ```
 
 Field notes:
@@ -148,7 +147,7 @@ Field notes:
 | `Venue` | Conference/journal/workshop/arXiv. Use `arXiv` only when not peer-reviewed yet. |
 | `Title` | Official paper title. |
 | `Paper` | arXiv, OpenReview, ACL Anthology, ACM, USENIX, conference PDF, or project page. |
-| `Code` | Official code/artifact/dataset preferred. Use `-` if unavailable or if only weak unofficial code exists. |
+| `Code` | Official code/artifact/dataset preferred. For GitHub repositories, append a stars badge: `![](https://img.shields.io/github/stars/owner/repo.svg?style=social)`. Use `-` if unavailable or if only weak unofficial code exists. |
 | `Rec` | Recommendation index from ★ to ★★★★★. |
 | `Comment` | One short judgment: contribution, system lesson, limitation, or why it is included. |
 
@@ -168,6 +167,7 @@ When adding or updating entries:
 
 - Verify the paper link and code link.
 - Prefer official code over unofficial code.
+- Add a GitHub stars badge after GitHub code links.
 - Mark whether the paper is peer-reviewed, arXiv-only, or accepted but not yet published.
 - Add a short comment explaining why the paper matters for systems/application infrastructure.
 - Avoid adding a repo merely because it is popular; it must match the paper-first scope.

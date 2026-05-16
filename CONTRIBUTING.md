@@ -18,11 +18,12 @@ Avoid adding:
 
 ## Entry format
 
-Use the table schema already present in each category file:
+Use the table schema already present in each topic file:
 
 ```markdown
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2025-02 | MLSys 2025 | Paper title | [paper](https://...) | [code](https://github.com/owner/repo) ![](https://img.shields.io/github/stars/owner/repo.svg?style=social) | ★★★★★ | One-sentence reason why this matters. |
 ```
 
 Field expectations:
@@ -31,7 +32,7 @@ Field expectations:
 - `Venue`: accepted venue when known; otherwise use `arXiv`.
 - `Title`: official paper title.
 - `Paper`: stable paper page, arXiv, OpenReview, ACL Anthology, ACM, USENIX, or project page.
-- `Code`: official code/artifact/dataset first. Use `-` if no reliable link is available.
+- `Code`: official code/artifact/dataset first. For GitHub repositories, append a stars badge: `![](https://img.shields.io/github/stars/owner/repo.svg?style=social)`. Use `-` if no reliable link is available.
 - `Rec`: one of `★☆☆☆☆` through `★★★★★`.
 - `Comment`: one concise reason this entry matters.
 
@@ -53,9 +54,9 @@ Recommendation labels should be conservative:
 
 ## Workflow
 
-1. Add the paper to the most specific category file.
+1. Add the paper to the most specific topic file.
 2. Put it under the most specific technical sub-direction.
-3. Cross-list only when the paper is genuinely central to multiple categories.
+3. Cross-list only when the paper is genuinely central to multiple topic areas.
 4. Prefer updating an existing row over creating duplicates.
 5. Keep comments short and judgment-oriented.
 6. Run the local link check before submitting:
