@@ -22,6 +22,9 @@ Retrieval-augmented generation, GraphRAG, retrieval-augmented reasoning, knowled
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-07 | ACL 2026 | UniversalRAG: Retrieval-Augmented Generation over Corpora of Diverse Modalities and Granularities | [paper](https://aclanthology.org/2026.acl-long.177/) | - | ★★★★☆ | Unifies retrieval over heterogeneous modalities and document granularities. |
+| 2026-07 | ICML 2026 | Token-Free Hierarchical Indexing for RAG beyond LLM-based Summarization | [paper](https://icml.cc/virtual/2026/poster/63668) | - | ★★★★☆ | Builds hierarchical retrieval indexes without spending generation tokens on summaries. |
+| 2026-05 | MLSys 2026 | LEANN: A Low-Storage Overhead Vector Index | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/e27ea0cd50b798ff8942caf9203f0992-Abstract-Conference.html) | - | ★★★★☆ | Reduces vector-index storage overhead for local and resource-constrained retrieval. |
 | 2020-04 | EMNLP 2020 | Dense Passage Retrieval for Open-Domain Question Answering | [paper](https://arxiv.org/abs/2004.04906) | [code](https://github.com/facebookresearch/DPR) ![](https://img.shields.io/github/stars/facebookresearch/DPR.svg?style=social) | ★★★★☆ | Standard dense retriever baseline behind many RAG pipelines. |
 | 2020-04 | SIGIR 2020 | ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT | [paper](https://arxiv.org/abs/2004.12832) | [code](https://github.com/stanford-futuredata/ColBERT) ![](https://img.shields.io/github/stars/stanford-futuredata/ColBERT.svg?style=social) | ★★★★☆ | Late-interaction retriever that remains important for high-quality RAG retrieval. |
 | 2020-02 | ICML 2020 | REALM: Retrieval-Augmented Language Model Pre-Training | [paper](https://arxiv.org/abs/2002.08909) | [code](https://github.com/google-research/language/tree/master/language/realm) ![](https://img.shields.io/github/stars/google-research/language.svg?style=social) | ★★★★☆ | Early learned retrieval-augmented pretraining system. |
@@ -39,6 +42,14 @@ Retrieval-augmented generation, GraphRAG, retrieval-augmented reasoning, knowled
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-07 | ACL 2026 | SARA: Selective and Adaptive Retrieval-augmented Generation with Context Compression | [paper](https://aclanthology.org/2026.acl-long.661/) | - | ★★★★☆ | Jointly decides whether to retrieve and how aggressively to compress the returned context. |
+| 2026-07 | ACL 2026 | R^3AG: Retriever Routing for Retrieval-Augmented Generation | [paper](https://aclanthology.org/2026.acl-long.939/) | - | ★★★★☆ | Routes each query among retrievers instead of relying on one fixed retrieval stack. |
+| 2026-07 | ACL 2026 | RAG-on-a-Diet: A Reinforcement Learning-Based Dynamic Resource Optimization Framework for RAG | [paper](https://aclanthology.org/2026.acl-long.1562/) | - | ★★★★☆ | Learns dynamic retrieval and context budgets under quality-cost constraints. |
+| 2026-07 | ICML 2026 | Retriever Portfolios: A Principled Approach to Adaptive RAG | [paper](https://icml.cc/virtual/2026/poster/64403) | [code](https://github.com/mstou/retriever-portfolios) ![](https://img.shields.io/github/stars/mstou/retriever-portfolios.svg?style=social) | ★★★★☆ | Selects from a portfolio of retrievers based on query-dependent utility. |
+| 2026-07 | ICML 2026 | Less Is More: Elevating RAG via Performance-Driven Context Compression | [paper](https://icml.cc/virtual/2026/poster/65862) | [code](https://github.com/ziqiangcui/CORE-RAG-ICML26) ![](https://img.shields.io/github/stars/ziqiangcui/CORE-RAG-ICML26.svg?style=social) | ★★★★☆ | Tunes context compression against downstream answer quality rather than proxy salience. |
+| 2026-07 | ICML 2026 | Predictive Prefetching for Retrieval-Augmented Generation | [paper](https://icml.cc/virtual/2026/poster/66231) | - | ★★★☆☆ | Predicts future retrieval needs to overlap retrieval with generation. |
+| 2026-05 | MLSys 2026 | TeleRAG: Efficient Retrieval-Augmented Generation Inference with Lookahead Retrieval | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/7fd522b89ac21009b7bbe7560a9a5add-Abstract-Conference.html) | - | ★★★★☆ | Uses lookahead queries to hide retrieval latency behind generation. |
+| 2026-07 | ACL 2026 | SpecCache: Speculative KV Cache Reuse for Efficient RAG Serving | [paper](https://aclanthology.org/2026.acl-long.859/) | - | ★★★★☆ | Speculatively reuses retrieved-context KV state across related RAG requests. |
 | 2023-05 | arXiv | Active Retrieval Augmented Generation | [paper](https://arxiv.org/abs/2305.06983) | - | ★★★☆☆ | FLARE-style generation-time retrieval triggering. |
 | 2023-01 | arXiv | RePlug: Retrieval-Augmented Black-Box Language Models | [paper](https://arxiv.org/abs/2301.12652) | - | ★★★☆☆ | Useful black-box retrieval augmentation baseline. |
 | 2023-10 | ICLR 2024 | Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection | [paper](https://arxiv.org/abs/2310.11511) | [code](https://github.com/AkariAsai/self-rag) ![](https://img.shields.io/github/stars/AkariAsai/self-rag.svg?style=social) | ★★★★★ | Retrieval control plus critique tokens for adaptive RAG. |
@@ -79,6 +90,8 @@ Retrieval-augmented generation, GraphRAG, retrieval-augmented reasoning, knowled
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-07 | ACL 2026 | SPARKLE: A Structured and Plug-and-play Agentic Retrieval Policy for Adaptive RAG Models | [paper](https://aclanthology.org/2026.acl-long.1793/) | - | ★★★★☆ | Adds a structured retrieval policy that can be attached to existing RAG models. |
+| 2026-07 | ACL 2026 | The Retrieval Bottleneck: Scaling Laws for Reinforcement Learning in RAG | [paper](https://aclanthology.org/2026.acl-long.1478/) | - | ★★★★☆ | Quantifies how retrieval quality limits returns from additional RL compute. |
 | 2022-12 | ACL 2023 | Interleaving Retrieval with Chain-of-Thought Reasoning for Knowledge-Intensive Multi-Step Questions | [paper](https://arxiv.org/abs/2212.10509) | [code](https://github.com/StonyBrookNLP/ircot) ![](https://img.shields.io/github/stars/StonyBrookNLP/ircot.svg?style=social) | ★★★★☆ | IRCoT baseline for retrieval interleaved with reasoning. |
 | 2024-02 | arXiv | Adaptive Retrieval-Augmented Generation for Conversational Systems | [paper](https://arxiv.org/abs/2402.19473) | - | ★★★☆☆ | Survey-style reference for RAG in generated content and applications. |
 | 2025-01 | arXiv | Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG | [paper](https://arxiv.org/abs/2501.09136) | - | ★★★☆☆ | Useful taxonomy for RAG systems that plan, retrieve, and revise. |
@@ -106,6 +119,8 @@ Retrieval-augmented generation, GraphRAG, retrieval-augmented reasoning, knowled
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-07 | ACL 2026 | CiteGuard: Faithful Citation Attribution for LLMs via Retrieval-Augmented Validation | [paper](https://aclanthology.org/2026.acl-long.282/) | - | ★★★★☆ | Validates generated citations against retrieved evidence and flags unsupported attribution. |
+| 2026-07 | ACL 2026 | ViDoRe V3: A Comprehensive Evaluation of Retrieval Augmented Generation in Complex Real-World Scenarios | [paper](https://aclanthology.org/2026.acl-long.755/) | - | ★★★★☆ | Broadens visual-document RAG evaluation to complex realistic retrieval and generation tasks. |
 | 2020-09 | NAACL 2021 | KILT: a Benchmark for Knowledge Intensive Language Tasks | [paper](https://arxiv.org/abs/2009.02252) | [code](https://github.com/facebookresearch/KILT) ![](https://img.shields.io/github/stars/facebookresearch/KILT.svg?style=social) | ★★★★☆ | Standard benchmark suite for grounded knowledge-intensive tasks. |
 | 2021-04 | NeurIPS 2021 | BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models | [paper](https://arxiv.org/abs/2104.08663) | [code](https://github.com/beir-cellar/beir) ![](https://img.shields.io/github/stars/beir-cellar/beir.svg?style=social) | ★★★★☆ | Retrieval benchmark used heavily for RAG retriever evaluation. |
 | 2023-09 | EACL 2024 | RAGAS: Automated Evaluation of Retrieval Augmented Generation | [paper](https://arxiv.org/abs/2309.15217) | [code](https://github.com/explodinggradients/ragas) ![](https://img.shields.io/github/stars/explodinggradients/ragas.svg?style=social) | ★★★★☆ | Popular RAG evaluation metrics and tooling. |
@@ -123,7 +138,7 @@ Retrieval-augmented generation, GraphRAG, retrieval-augmented reasoning, knowled
 | 2025-06 | arXiv | GraphRAG-Bench: Challenging Domain-Specific Reasoning for Evaluating Graph Retrieval-Augmented Generation | [paper](https://arxiv.org/abs/2506.02404) | - | ★★★☆☆ | Domain-specific GraphRAG benchmark covering graph construction, retrieval, and reasoning. |
 | 2025-06 | arXiv | T2-RAGBench: Text-and-Table Benchmark for Evaluating Retrieval-Augmented Generation | [paper](https://arxiv.org/abs/2506.12071) | - | ★★★☆☆ | Financial text-and-table RAG benchmark with large-scale QA triples. |
 | 2025-10 | arXiv | Towards Global Retrieval Augmented Generation: A Benchmark for Corpus-Level Reasoning | [paper](https://arxiv.org/abs/2510.26205) | - | ★★★☆☆ | GlobalQA benchmark for counting, extrema, sorting, and top-k reasoning over corpora. |
-| 2026-05 | ICML 2026 | Ranking Free RAG: Replacing Re-ranking with Selection in RAG for Sensitive Domains | [paper](https://icml.cc/Downloads/2026) | - | ★★★☆☆ | ICML 2026 RAG evaluation direction focused on selection rather than reranking. |
+| 2026-07 | ICML 2026 | Ranking Free RAG: Replacing Re-ranking with Selection in RAG for Sensitive Domains | [paper](https://icml.cc/virtual/2026/poster/64383) | - | ★★★☆☆ | Replaces reranking with evidence selection in sensitive-domain RAG. |
 
 ## Upstream source lists
 

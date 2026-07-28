@@ -1,7 +1,10 @@
 # Collection Map
 
 **Suggested repository name:** `awesome-ai-infra-papers`  
-**Last collected:** 2026-05-16, Asia/Shanghai
+**Last collected:** 2026-07-28, Asia/Shanghai
+
+**Latest sweep:** MLSys 2026, NSDI 2026, OSDI 2026, ISCA 2026, ICML 2026, ACL 2026, and arXiv updates published after 2026-05-16.
+
 **Collection principle:** paper-first, infra-oriented, no pure model leaderboard, no pure app/tool directory.
 
 This file is the root-level map of the repository. It defines the top-level taxonomy and seed upstream repositories to mine when building topic-level paper tables.

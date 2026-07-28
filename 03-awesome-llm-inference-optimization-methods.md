@@ -32,6 +32,10 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-07 | ICML 2026 | Less Is More: Fast and Accurate Reasoning with Cross-Head Unified Sparse Attention | [paper](https://icml.cc/virtual/2026/poster/61079) | [code](https://github.com/DerrickYLJ/LessIsMore) ![](https://img.shields.io/github/stars/DerrickYLJ/LessIsMore.svg?style=social) | ★★★★☆ | Shares sparse-attention structure across heads to reduce reasoning-time attention cost. |
+| 2026-05 | MLSys 2026 | MAC-Attention: a Match--Amend--Complete scheme for fast and accurate attention computation | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/7398289396de403d7d0505ed791e704a-Abstract-Conference.html) | - | ★★★★☆ | Combines approximate matching with targeted correction to avoid unnecessary attention work. |
+| 2026-05 | MLSys 2026 | BLASST: Dynamic BLocked Attention Sparsity via Softmax Thresholding | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/c6ee784cbe46d854843e4c883a3321ef-Abstract-Conference.html) | - | ★★★★☆ | Selects block sparsity online from softmax behavior instead of a fixed pattern. |
+| 2026-05 | MLSys 2026 | IntAttention: A Fully Integer Attention Pipeline for Efficient Edge Inference | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/ea5ffdf7da91256ecd2770f9fd2dade9-Abstract-Conference.html) | [code](https://github.com/WanliZhong/IntAttention) ![](https://img.shields.io/github/stars/WanliZhong/IntAttention.svg?style=social) | ★★★★☆ | Implements the complete attention path with integer arithmetic for edge accelerators. |
 | 2019-11 | arXiv | Fast Transformer Decoding: One Write-Head is All You Need | [paper](https://arxiv.org/abs/1911.02150) | - | ★★★★☆ | Multi-query attention reference for reducing KV cache bandwidth. |
 | 2023-05 | arXiv | GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints | [paper](https://arxiv.org/abs/2305.13245) | - | ★★★★☆ | Practical middle point between MHA quality and MQA serving efficiency. |
 | 2022-05 | NeurIPS 2022 | FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness | [paper](https://arxiv.org/abs/2205.14135) | [code](https://github.com/Dao-AILab/flash-attention) ![](https://img.shields.io/github/stars/Dao-AILab/flash-attention.svg?style=social) | ★★★★★ | Core IO-aware attention kernel. |
@@ -50,6 +54,12 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-07 | arXiv | MemDecay: Region-Aware KV Cache Eviction for Efficient LLM Agent Inference | [paper](https://arxiv.org/abs/2607.10582) | - | ★★★☆☆ | Uses agent-trajectory regions and age-aware decay to evict stale cache state. |
+| 2026-07 | ICML 2026 | STAR-KV: Low-Rank KV Cache Compression via Soft Thresholding for Adaptive Rank Control | [paper](https://icml.cc/virtual/2026/poster/61958) | [code](https://github.com/PriyanshBhatnagar/STAR-KV) ![](https://img.shields.io/github/stars/PriyanshBhatnagar/STAR-KV.svg?style=social) | ★★★★☆ | Adapts low-rank cache budgets with soft thresholding rather than fixed truncation. |
+| 2026-07 | ICML 2026 | TGV-KV: Text-Grounded KV Eviction for Vision-Language Models | [paper](https://icml.cc/virtual/2026/poster/61187) | [code](https://github.com/Danielement321/TGV-KV) ![](https://img.shields.io/github/stars/Danielement321/TGV-KV.svg?style=social) | ★★★★☆ | Uses text grounding to retain multimodal KV entries that matter to generation. |
+| 2026-05 | MLSys 2026 | SkipKV: Selective Skipping of KV Generation and Storage for Efficient Inference with Large Reasoning Models | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/45c1f6a8cbf2da59ebf2c802b4f742cd-Abstract-Conference.html) | [code](https://github.com/TTTTTTris/SkipKV) ![](https://img.shields.io/github/stars/TTTTTTris/SkipKV.svg?style=social) | ★★★★☆ | Skips both computation and storage for low-value KV states in long reasoning traces. |
+| 2026-05 | MLSys 2026 | FlexiCache: Leveraging Temporal Stability of Attention Heads for Efficient KV Cache Management | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/94bcb01789fccf15afe2764d8fe0f40e-Abstract-Conference.html) | - | ★★★★☆ | Exploits stable head behavior to vary cache retention over time. |
+| 2026-05 | MLSys 2026 | OPKV: A High-Throughput Plugin-Driven Framework for Recallable Sparsity in Paged KV Cache Systems | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/71381211d0abef73ed1887b83c4547b1-Abstract-Conference.html) | - | ★★★★☆ | Adds recallable sparse-cache policies to paged serving layouts through a plugin interface. |
 | 2023-06 | NeurIPS 2023 | H2O: Heavy-Hitter Oracle for Efficient Generative Inference of Large Language Models | [paper](https://arxiv.org/abs/2306.14048) | [code](https://github.com/FMInference/H2O) ![](https://img.shields.io/github/stars/FMInference/H2O.svg?style=social) | ★★★★★ | Heavy-hitter KV retention baseline. |
 | 2023-09 | ICLR 2024 | Efficient Streaming Language Models with Attention Sinks | [paper](https://arxiv.org/abs/2309.17453) | [code](https://github.com/mit-han-lab/streaming-llm) ![](https://img.shields.io/github/stars/mit-han-lab/streaming-llm.svg?style=social) | ★★★★★ | Explains attention sinks and enables streaming contexts with bounded KV. |
 | 2024-04 | NeurIPS 2024 | SnapKV: LLM Knows What You are Looking for Before Generation | [paper](https://arxiv.org/abs/2404.14469) | [code](https://github.com/FasterDecoding/SnapKV) ![](https://img.shields.io/github/stars/FasterDecoding/SnapKV.svg?style=social) | ★★★★☆ | Compresses prompt KV based on attention observations before generation. |
@@ -78,6 +88,8 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-07 | arXiv | HyMCache: A KV Cache Framework for Multi-Turn LLM Serving with CXL-Hybrid Memory | [paper](https://arxiv.org/abs/2607.18141) | - | ★★★★☆ | Places reusable multi-turn KV state across GPU and CXL-attached memory tiers. |
+| 2026-05 | MLSys 2026 | ContextPilot: Fast Long-Context Inference via Context Reuse | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/b0131b6ee02a00b03fc3320176fec8f5-Abstract-Conference.html) | [code](https://github.com/EfficientContext/ContextPilot) ![](https://img.shields.io/github/stars/EfficientContext/ContextPilot.svg?style=social) | ★★★★☆ | Reuses context computation across related long-context requests. |
 | 2023-10 | arXiv | CacheGen: KV Cache Compression and Streaming for Fast Large Language Model Serving | [paper](https://arxiv.org/abs/2310.07240) | - | ★★★★☆ | Compresses and streams reusable KV cache to lower context-fetch latency. |
 | 2025-03 | arXiv | FastCache: Optimizing Multimodal LLM Serving through Lightweight KV-Cache Compression Framework | [paper](https://arxiv.org/abs/2503.08461) | - | ★★★☆☆ | Multimodal KV compression and cache lifecycle management. |
 | 2025-06 | arXiv | Breaking the Boundaries of Long-Context LLM Inference: Adaptive KV Management on a Single Commodity GPU | [paper](https://arxiv.org/abs/2506.20187) | - | ★★★☆☆ | Hierarchical GPU-CPU-disk KV management for private single-GPU long-context inference. |
@@ -93,6 +105,8 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-07 | ICML 2026 | GSRQ: Gain-Shape Residual Quantization for Sub-1-bit KV Cache | [paper](https://icml.cc/virtual/2026/poster/65012) | - | ★★★★☆ | Separates gain and shape before residual quantization to push KV storage below one bit. |
+| 2026-05 | MLSys 2026 | Kitty: Accurate and Efficient 2-bit KV Cache Quantization with Dynamic Channel-wise Precision Boost | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/e4d8d1b5120be349d3fff8878650cf45-Abstract-Conference.html) | [code](https://github.com/Summer-Summer/Kitty) ![](https://img.shields.io/github/stars/Summer-Summer/Kitty.svg?style=social) | ★★★★☆ | Dynamically raises precision only for sensitive KV channels. |
 | 2024-02 | ICML 2024 | KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache | [paper](https://arxiv.org/abs/2402.02750) | [code](https://github.com/jy-yuan/KIVI) ![](https://img.shields.io/github/stars/jy-yuan/KIVI.svg?style=social) | ★★★★★ | Core 2-bit KV quantization method. |
 | 2024-01 | arXiv | KVQuant: Towards 10 Million Context Length LLM Inference with KV Cache Quantization | [paper](https://arxiv.org/abs/2401.18079) | [code](https://github.com/SqueezeAILab/KVQuant) ![](https://img.shields.io/github/stars/SqueezeAILab/KVQuant.svg?style=social) | ★★★★☆ | Sub-4-bit KV cache quantization for very long contexts. |
 | 2025-03 | arXiv | Q-Filters: Leveraging QK Geometry for Efficient KV Cache Compression | [paper](https://arxiv.org/abs/2503.02812) | - | ★★★☆☆ | Uses QK geometry as a selection/filtering signal for compressed KV. |
@@ -108,6 +122,14 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-07 | arXiv | SPORK: Self-Speculative Forking to Accelerate Agentic LLM Inference | [paper](https://arxiv.org/abs/2607.03333) | [code](https://github.com/baihuajun24/spork) ![](https://img.shields.io/github/stars/baihuajun24/spork.svg?style=social) | ★★★★☆ | Forks likely agent trajectories and verifies them with the same model to hide sequential latency. |
+| 2026-07 | ICML 2026 | DAPD: Dependency-Aware Parallel Decoding via Attention for Diffusion LLMs | [paper](https://icml.cc/virtual/2026/poster/64624) | - | ★★★★☆ | Uses attention-derived dependencies to parallelize diffusion-language-model decoding. |
+| 2026-07 | ICML 2026 | ECHO: Elastic Speculative Decoding with Sparse Gating for High-Concurrency Scenarios | [paper](https://icml.cc/virtual/2026/poster/64670) | - | ★★★★☆ | Adapts speculative work to concurrency pressure with sparse gates. |
+| 2026-07 | ICML 2026 | SPEED-Bench: A Unified and Diverse Benchmark for Speculative Decoding | [paper](https://icml.cc/virtual/2026/poster/64011) | - | ★★★☆☆ | Standardizes speculative-decoding evaluation across methods, models, and workloads. |
+| 2026-06 | ISCA 2026 | Cassandra: Enabling Reasoning LLMs at Edge via Self-Speculative Decoding | [paper](https://arxiv.org/abs/2605.26558) | - | ★★★★☆ | Co-designs early exits and edge hardware behavior for self-speculative reasoning. |
+| 2026-06 | ISCA 2026 | HybridSpec: Exploiting Hybrid-bonding Memory to Accelerate LLM Serving through Heterogeneous Architecture and Speculative Decoding | [paper](https://www.iscaconf.org/isca2026/program/) | - | ★★★★☆ | Couples heterogeneous compute and hybrid-bonded memory with speculative decoding. |
+| 2026-05 | MLSys 2026 | SpecDiff-2: Scaling Diffusion Drafter Alignment For Faster Speculative Decoding | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/041dad5ed2191b44ba3ed0e00cdc3187-Abstract-Conference.html) | - | ★★★★☆ | Improves diffusion-drafter alignment to scale parallel speculative proposals. |
+| 2026-05 | MLSys 2026 | Accelerating Large-Scale Reasoning Model Inference with Sparse Self-Speculative Decoding | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/66a026c0d17040889b50f0dfa650e5e0-Abstract-Conference.html) | - | ★★★★☆ | Uses sparse early layers as an internal draft path for reasoning models. |
 | 2022-11 | ICML 2023 | Fast Inference from Transformers via Speculative Decoding | [paper](https://arxiv.org/abs/2211.17192) | - | ★★★★★ | Foundational draft-and-verify speculative decoding paper. |
 | 2023-02 | arXiv | Accelerating Large Language Model Decoding with Speculative Sampling | [paper](https://arxiv.org/abs/2302.01318) | - | ★★★★★ | Parallel formulation of speculative sampling for LLM decoding. |
 | 2023-05 | arXiv | SpecInfer: Accelerating Generative Large Language Model Serving with Tree-based Speculative Inference and Verification | [paper](https://arxiv.org/abs/2305.09781) | - | ★★★★☆ | Tree-structured speculation for serving workloads. |
@@ -131,6 +153,7 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-07 | ICML 2026 | LO-BCQ: Locally Optimal Block Clustered Quantization for 4-bit (W4A4) LLM Inference | [paper](https://icml.cc/virtual/2026/poster/68796) | - | ★★★★☆ | Optimizes clustered block quantizers for practical W4A4 execution. |
 | 2022-10 | ICLR 2023 | GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers | [paper](https://arxiv.org/abs/2210.17323) | [code](https://github.com/IST-DASLab/gptq) ![](https://img.shields.io/github/stars/IST-DASLab/gptq.svg?style=social) | ★★★★★ | Classic post-training quantization baseline. |
 | 2022-11 | ICML 2023 | SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models | [paper](https://arxiv.org/abs/2211.10438) | [code](https://github.com/mit-han-lab/smoothquant) ![](https://img.shields.io/github/stars/mit-han-lab/smoothquant.svg?style=social) | ★★★★★ | Practical W8A8 quantization method. |
 | 2023-03 | arXiv | SpQR: A Sparse-Quantized Representation for Near-Lossless LLM Weight Compression | [paper](https://arxiv.org/abs/2306.03078) | [code](https://github.com/Vahe1994/SpQR) ![](https://img.shields.io/github/stars/Vahe1994/SpQR.svg?style=social) | ★★★★☆ | Sparse outlier-aware quantization for near-lossless compression. |
@@ -151,6 +174,7 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-05 | MLSys 2026 | Attribution-based Sparse Activation in Large Language Models | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/29591f355702c3f4436991335784b503-Abstract-Conference.html) | - | ★★★☆☆ | Uses attribution signals to skip low-impact activation computation. |
 | 2023-01 | ICML 2023 | SparseGPT: Massive Language Models Can Be Accurately Pruned in One-Shot | [paper](https://arxiv.org/abs/2301.00774) | [code](https://github.com/IST-DASLab/sparsegpt) ![](https://img.shields.io/github/stars/IST-DASLab/sparsegpt.svg?style=social) | ★★★★☆ | One-shot pruning baseline for large LMs. |
 | 2023-06 | arXiv | Wanda: Pruning by Weights and Activations | [paper](https://arxiv.org/abs/2306.11695) | [code](https://github.com/locuslab/wanda) ![](https://img.shields.io/github/stars/locuslab/wanda.svg?style=social) | ★★★★☆ | Simple pruning metric with strong LLM results. |
 | 2023-05 | NeurIPS 2023 | LLM-Pruner: On the Structural Pruning of Large Language Models | [paper](https://arxiv.org/abs/2305.11627) | [code](https://github.com/horseee/LLM-Pruner) ![](https://img.shields.io/github/stars/horseee/LLM-Pruner.svg?style=social) | ★★★☆☆ | Structured pruning framework for LLMs. |
@@ -164,6 +188,7 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-05 | MLSys 2026 | Demystifying the Mixture of Experts Serving Tax | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/42a452cbafa9dd64e9ba4aa95cc1ef21-Abstract-Conference.html) | - | ★★★★☆ | Separates the memory, communication, kernel, and load-imbalance costs behind MoE serving. |
 | 2020-06 | arXiv | GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding | [paper](https://arxiv.org/abs/2006.16668) | - | ★★★★☆ | Sparse expert scaling and automatic sharding reference. |
 | 2021-01 | JMLR 2022 | Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity | [paper](https://arxiv.org/abs/2101.03961) | - | ★★★★☆ | Widely cited simple MoE architecture. |
 | 2021-03 | arXiv | FastMoE: A Fast Mixture-of-Expert Training System | [paper](https://arxiv.org/abs/2103.13262) | [code](https://github.com/laekov/fastmoe) ![](https://img.shields.io/github/stars/laekov/fastmoe.svg?style=social) | ★★★☆☆ | Early open MoE runtime with expert-parallel system support. |
@@ -184,6 +209,9 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-05 | arXiv | TIDE: Efficient and Lossless MoE Diffusion LLM Inference with I/O-aware Expert Offload | [paper](https://arxiv.org/abs/2605.20179) | - | ★★★★☆ | Schedules expert movement around diffusion reuse and storage I/O constraints. |
+| 2026-06 | ISCA 2026 | STEP: Adaptive Spatio-Temporal Expert Prefetching for Low-Latency and Memory-Efficient MoE Inference | [paper](https://www.iscaconf.org/isca2026/program/) | - | ★★★★☆ | Predicts expert use across layers and time to prefetch under tight memory. |
+| 2026-05 | arXiv | CoX-MoE: Coalesced Expert Execution for High-Throughput MoE Inference with AMX-Enabled CPU-GPU Co-Execution | [paper](https://arxiv.org/abs/2605.17889) | - | ★★★★☆ | Coalesces expert batches and executes them across GPU and AMX-enabled CPUs. |
 | 2023-08 | arXiv | EdgeMoE: Empowering Sparse Large Language Models on Mobile Devices | [paper](https://arxiv.org/abs/2308.14352) | [code](https://github.com/UbiquitousLearning/mllm) ![](https://img.shields.io/github/stars/UbiquitousLearning/mllm.svg?style=social) | ★★★☆☆ | On-device MoE engine with external-storage expert fetch, bit-width adaptation, and preloading. |
 | 2023-08 | ACL 2024 | SwapMoE: Serving Off-the-shelf MoE-based Large Language Models with Tunable Memory Budget | [paper](https://arxiv.org/abs/2308.15030) | - | ★★★☆☆ | Virtual-expert mapping for serving MoE models under adjustable memory budgets. |
 | 2024-01 | arXiv | MoE-Infinity: Efficient MoE Inference on Personal Machines with Sparsity-Aware Expert Cache | [paper](https://arxiv.org/abs/2401.14361) | [code](https://github.com/EfficientMoE/MoE-Infinity) ![](https://img.shields.io/github/stars/EfficientMoE/MoE-Infinity.svg?style=social) | ★★★★☆ | Personal-machine MoE serving with sparsity-aware expert caching. |
@@ -217,6 +245,13 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-06 | arXiv | ViBE: Co-Optimizing Workload Skew and Hardware Variability for MoE Serving | [paper](https://arxiv.org/abs/2606.00735) | - | ★★★★☆ | Jointly handles expert-load skew and heterogeneous accelerator performance. |
+| 2026-06 | arXiv | Beyond Task-Agnostic: Task-Aware Grouping for Communication-Efficient Multi-Task MoE Inference | [paper](https://arxiv.org/abs/2606.01007) | - | ★★★☆☆ | Groups requests by task-level routing affinity to reduce expert-parallel communication. |
+| 2026-06 | ISCA 2026 | Patterns Behind Chaos: Forecasting Data Movement for Efficient Large-Scale MoE LLM Inference | [paper](https://arxiv.org/abs/2510.05497) | - | ★★★★★ | ISCA best paper that forecasts MoE data movement to improve distributed execution. |
+| 2026-06 | ISCA 2026 | MoE-Hub: Taming Software Complexity for Seamless MoE Overlap with Hardware-Accelerated Communication on Multi-GPU Systems | [paper](https://arxiv.org/abs/2605.05888) | - | ★★★★☆ | Provides a unified runtime abstraction for overlapping expert communication and compute. |
+| 2026-05 | arXiv | PALS: Power-Aware LLM Serving for Mixture-of-Experts Models | [paper](https://arxiv.org/abs/2605.21427) | - | ★★★☆☆ | Includes power budgets in expert placement and serving decisions. |
+| 2026-05 | MLSys 2026 | CRAFT: Fine-Grained Cost-Aware Expert Replication For Efficient Mixture-of-Experts Serving | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/3a7f9e485845dac27423375c934cb4db-Abstract-Conference.html) | - | ★★★★☆ | Replicates experts according to measured communication and imbalance cost. |
+| 2026-05 | MLSys 2026 | From Tokens to Layers: Redefining Stall-Free Scheduling for MoE Serving with Layered Prefill | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/c0f460c6d63599ea870ba9db63dc96a9-Abstract-Conference.html) | - | ★★★★☆ | Uses layered prefill to overlap expert movement and execution without token-level stalls. |
 | 2022-10 | ATC 2023 | Accelerating Distributed MoE Training and Inference with Lina | [paper](https://arxiv.org/abs/2210.17223) | - | ★★★★☆ | Analyzes all-to-all bottlenecks and dynamically schedules resources for skewed expert popularity. |
 | 2023-03 | arXiv | Towards MoE Deployment: Mitigating Inefficiencies in Mixture-of-Expert Inference | [paper](https://arxiv.org/abs/2303.06182) | - | ★★★☆☆ | Early deployment study covering gating, buffering, and load balancing for MoE inference. |
 | 2023-07 | ATC 2023 | SmartMoE: Efficiently Training Sparsely-Activated Models through Combining Offline and Online Parallelization | [paper](https://www.usenix.org/conference/atc23/presentation/zhai) | [code](https://github.com/zms1999/SmartMoE) ![](https://img.shields.io/github/stars/zms1999/SmartMoE.svg?style=social) | ★★★☆☆ | Online/offline parallelization ideas useful for expert placement and scheduling. |
@@ -238,6 +273,7 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-06 | ISCA 2026 | SMoE: An Algorithm-System Co-Design for Pushing MoE to the Edge via Expert Substitution | [paper](https://www.iscaconf.org/isca2026/program/) | - | ★★★★☆ | Substitutes unavailable experts to reduce edge memory and transfer pressure. |
 | 2023-08 | ISCA 2024 | Pre-gated MoE: An Algorithm-System Co-Design for Fast and Scalable Mixture-of-Expert Inference | [paper](https://arxiv.org/abs/2308.12066) | [code](https://github.com/ranggihwang/Pregated_MoE) ![](https://img.shields.io/github/stars/ranggihwang/Pregated_MoE.svg?style=social) | ★★★★☆ | Predicts expert use earlier to enable prefetching and scalable MoE inference. |
 | 2024-04 | arXiv | Prediction Is All MoE Needs: Expert Load Distribution Goes from Fluctuating to Stabilizing | [paper](https://arxiv.org/abs/2404.16914) | - | ★★★☆☆ | Studies expert-load predictability and its scheduling implications. |
 | 2024-08 | arXiv | AdapMoE: Adaptive Sensitivity-based Expert Gating and Management for Efficient MoE Inference | [paper](https://arxiv.org/abs/2408.10284) | [code](https://github.com/PKU-SEC-Lab/AdapMoE) ![](https://img.shields.io/github/stars/PKU-SEC-Lab/AdapMoE.svg?style=social) | ★★★☆☆ | Adaptive expert gating/management for reducing MoE inference cost. |
@@ -253,6 +289,9 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-07 | arXiv | PagedWeight: Efficient MoE LLM Serving with Dynamic Quality-Aware Weight Quantization | [paper](https://arxiv.org/abs/2607.16184) | - | ★★★★☆ | Pages experts at dynamically selected precision according to quality and memory pressure. |
+| 2026-07 | ICML 2026 | ZipMoE: Efficient On-Device MoE Serving via Lossless Compression and Cache-Affinity Scheduling | [paper](https://icml.cc/virtual/2026/poster/64146) | [code](https://github.com/npnothard/ZipMoE-ICML26) ![](https://img.shields.io/github/stars/npnothard/ZipMoE-ICML26.svg?style=social) | ★★★★☆ | Combines lossless expert compression with cache-aware on-device scheduling. |
+| 2026-05 | MLSys 2026 | FP8-Flow-MoE: A Casting-Free FP8 Recipe without Double Quantization Error | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/9cb295d4dce6db99f01e0dd512e46ba0-Abstract-Conference.html) | [code](https://github.com/021ai/FP8-FLOW-MOE-AE) ![](https://img.shields.io/github/stars/021ai/FP8-FLOW-MOE-AE.svg?style=social) | ★★★★☆ | Removes redundant casts and double quantization in FP8 MoE execution. |
 | 2023-10 | arXiv | QMoE: Practical Sub-1-Bit Compression of Trillion-Parameter Models | [paper](https://arxiv.org/abs/2310.16795) | [code](https://github.com/IST-DASLab/qmoe) ![](https://img.shields.io/github/stars/IST-DASLab/qmoe.svg?style=social) | ★★★★☆ | Extreme MoE compression with custom GPU decoding kernels. |
 | 2023-10 | ICLR 2024 | Merge, Then Compress: Demystify Efficient SMoE with Hints from Its Routing Policy | [paper](https://arxiv.org/abs/2310.01334) | [code](https://github.com/unites-lab/mc-smoe) ![](https://img.shields.io/github/stars/unites-lab/mc-smoe.svg?style=social) | ★★★★☆ | Expert merging/compression guided by routing behavior. |
 | 2024-06 | arXiv | QuantMoE-Bench: Examining Post-Training Quantization for Mixture-of-Experts | [paper](https://arxiv.org/abs/2406.08155) | - | ★★★☆☆ | Benchmark for MoE-specific PTQ behavior and failure modes. |
@@ -272,6 +311,7 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-06 | ISCA 2026 | Tetris: Efficient Long-context LLM Serving with Chunkwise Dynamic Sequence Parallelism | [paper](https://www.iscaconf.org/isca2026/program/) | - | ★★★★☆ | Dynamically changes sequence parallelism by chunk as long-context phases evolve. |
 | 2020-04 | arXiv | Longformer: The Long-Document Transformer | [paper](https://arxiv.org/abs/2004.05150) | [code](https://github.com/allenai/longformer) ![](https://img.shields.io/github/stars/allenai/longformer.svg?style=social) | ★★★☆☆ | Early sparse-attention long-context baseline. |
 | 2020-07 | NeurIPS 2020 | Big Bird: Transformers for Longer Sequences | [paper](https://arxiv.org/abs/2007.14062) | [code](https://github.com/google-research/bigbird) ![](https://img.shields.io/github/stars/google-research/bigbird.svg?style=social) | ★★★☆☆ | Sparse attention pattern with theoretical support. |
 | 2023-02 | ICML 2023 | Hyena Hierarchy: Towards Larger Convolutional Language Models | [paper](https://arxiv.org/abs/2302.10866) | [code](https://github.com/HazyResearch/safari) ![](https://img.shields.io/github/stars/HazyResearch/safari.svg?style=social) | ★★★☆☆ | Long convolutional architecture line for sub-quadratic sequence modeling. |
@@ -289,6 +329,8 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-07 | OSDI 2026 | Breaking the Reward Barrier: Accelerating Tree-of-Thought Reasoning via Speculative Exploration | [paper](https://www.usenix.org/conference/osdi26/presentation/zhong) | - | ★★★★☆ | Speculatively explores tree branches to keep accelerators busy during reward-guided reasoning. |
+| 2026-05 | MLSys 2026 | Locality-Aware Beam Scheduling for Efficient Test-Time Compute with a Consumer-grade GPU | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/c74b624843218d9b6713fcf299d6d5e4-Abstract-Conference.html) | - | ★★★☆☆ | Schedules candidate beams to exploit memory locality on a single consumer GPU. |
 | 2024-07 | arXiv | Large Language Monkeys: Scaling Inference Compute with Repeated Sampling | [paper](https://arxiv.org/abs/2407.21787) | - | ★★★★☆ | Shows simple repeated sampling as a strong test-time compute baseline. |
 | 2025-03 | arXiv | Efficient Inference for Large Reasoning Models: A Survey | [paper](https://arxiv.org/abs/2503.23077) | - | ★★★☆☆ | Recent map of efficient inference methods for reasoning models. |
 | 2025-06 | arXiv | Cost-Efficient Serving of LLM Agents via Test-Time Plan Caching | [paper](https://arxiv.org/abs/2506.14852) | - | ★★★☆☆ | Bridges agent serving cost with reusable test-time plans. |

@@ -3,7 +3,10 @@
 > A paper-first reading map for AI infrastructure, LLM systems, efficient inference, RAG, agents, and reliable LLM applications.
 
 **Suggested repository name:** `awesome-ai-infra-papers`  
-**Last collected:** 2026-05-16, Asia/Shanghai  
+**Last collected:** 2026-07-28, Asia/Shanghai
+
+**Latest sweep:** MLSys 2026, NSDI 2026, OSDI 2026, ISCA 2026, ICML 2026, ACL 2026, and arXiv updates published after 2026-05-16.
+
 **Primary language:** English titles + bilingual notes are welcome. Chinese comments are acceptable when they help readers quickly triage.
 
 ## What is this repository?

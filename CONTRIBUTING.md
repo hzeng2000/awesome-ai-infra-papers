@@ -59,8 +59,10 @@ Recommendation labels should be conservative:
 3. For `01` vs `03`, use the paper's primary artifact as the tie-breaker: serving platforms and runtime infrastructure that own request/session/cache/worker lifecycle go in `01`; inference optimization methods such as KV compression, speculative decoding, quantization, pruning, or MoE expert movement/routing go in `03`.
 4. Cross-list only when the paper is genuinely central to multiple topic areas.
 5. Prefer updating an existing row over creating duplicates.
-6. Keep comments short and judgment-oriented.
-7. Run the local link check before submitting:
+6. When proceedings become available, replace placeholder, author-page, or preprint metadata with the official conference page and venue instead of adding a second row.
+7. For periodic sweeps, record the cutoff date and check both newly published proceedings and arXiv submissions after that cutoff.
+8. Keep comments short and judgment-oriented.
+9. Run the local link check before submitting:
 
 ```bash
 python3 scripts/check_links.py --local-only
