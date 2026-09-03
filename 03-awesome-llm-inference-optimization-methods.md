@@ -32,6 +32,7 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-08 | ICML 2026 | Faster Than Flash: Exploiting Attention Sparsity for Efficient Long-Context Decoding | [paper](https://arxiv.org/abs/2609.00097) | - | ★★★★☆ | Co-designs sparse selection and kernels to reduce metadata and compute overhead during decode. |
 | 2026-07 | ICML 2026 | Less Is More: Fast and Accurate Reasoning with Cross-Head Unified Sparse Attention | [paper](https://icml.cc/virtual/2026/poster/61079) | [code](https://github.com/DerrickYLJ/LessIsMore) ![](https://img.shields.io/github/stars/DerrickYLJ/LessIsMore.svg?style=social) | ★★★★☆ | Shares sparse-attention structure across heads to reduce reasoning-time attention cost. |
 | 2026-05 | MLSys 2026 | MAC-Attention: a Match--Amend--Complete scheme for fast and accurate attention computation | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/7398289396de403d7d0505ed791e704a-Abstract-Conference.html) | - | ★★★★☆ | Combines approximate matching with targeted correction to avoid unnecessary attention work. |
 | 2026-05 | MLSys 2026 | BLASST: Dynamic BLocked Attention Sparsity via Softmax Thresholding | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/c6ee784cbe46d854843e4c883a3321ef-Abstract-Conference.html) | - | ★★★★☆ | Selects block sparsity online from softmax behavior instead of a fixed pattern. |
@@ -88,6 +89,9 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-09 | arXiv | CacheBridge: Efficient Cross-Model KV Cache Transfer | [paper](https://arxiv.org/abs/2609.00891) | - | ★★★★☆ | Maps cache state between heterogeneous models so shared prefixes need not be replayed. |
+| 2026-08 | SIGCOMM 2026 | Efficient Remote KV Cache Reuse with GPU-native Video Codec | [paper](https://dl.acm.org/doi/10.1145/3789240.3829120) | - | ★★★★☆ | Encodes remote KV state with GPU video hardware to reduce reuse-transfer overhead. |
+| 2026-08 | arXiv | OasisKV: Scaling In-Decode KV Cache Beyond HBM with Lookahead Sparse Prefetching | [paper](https://arxiv.org/abs/2608.08097) | - | ★★★★☆ | Predicts sparse decode access and prefetches offloaded KV state before it is needed. |
 | 2026-07 | arXiv | HyMCache: A KV Cache Framework for Multi-Turn LLM Serving with CXL-Hybrid Memory | [paper](https://arxiv.org/abs/2607.18141) | - | ★★★★☆ | Places reusable multi-turn KV state across GPU and CXL-attached memory tiers. |
 | 2026-05 | MLSys 2026 | ContextPilot: Fast Long-Context Inference via Context Reuse | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/b0131b6ee02a00b03fc3320176fec8f5-Abstract-Conference.html) | [code](https://github.com/EfficientContext/ContextPilot) ![](https://img.shields.io/github/stars/EfficientContext/ContextPilot.svg?style=social) | ★★★★☆ | Reuses context computation across related long-context requests. |
 | 2023-10 | arXiv | CacheGen: KV Cache Compression and Streaming for Fast Large Language Model Serving | [paper](https://arxiv.org/abs/2310.07240) | - | ★★★★☆ | Compresses and streams reusable KV cache to lower context-fetch latency. |
@@ -105,6 +109,8 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-08 | arXiv | SemKV: Semantic Mixed-Precision KV Cache Quantization Guided by the Quality Cliff for Long-Context LLM Inference | [paper](https://arxiv.org/abs/2608.28911) | - | ★★★★☆ | Assigns semantic mixed precision while explicitly locating long-context quality cliffs. |
+| 2026-08 | arXiv | SPECTRA: Pushing the KV Cache Beyond the 2-Bit Cliff via Spectral Transform Coding | [paper](https://arxiv.org/abs/2608.07915) | - | ★★★★☆ | Uses transform coding to retain cache quality below conventional two-bit limits. |
 | 2026-07 | ICML 2026 | GSRQ: Gain-Shape Residual Quantization for Sub-1-bit KV Cache | [paper](https://icml.cc/virtual/2026/poster/65012) | - | ★★★★☆ | Separates gain and shape before residual quantization to push KV storage below one bit. |
 | 2026-05 | MLSys 2026 | Kitty: Accurate and Efficient 2-bit KV Cache Quantization with Dynamic Channel-wise Precision Boost | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/e4d8d1b5120be349d3fff8878650cf45-Abstract-Conference.html) | [code](https://github.com/Summer-Summer/Kitty) ![](https://img.shields.io/github/stars/Summer-Summer/Kitty.svg?style=social) | ★★★★☆ | Dynamically raises precision only for sensitive KV channels. |
 | 2024-02 | ICML 2024 | KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache | [paper](https://arxiv.org/abs/2402.02750) | [code](https://github.com/jy-yuan/KIVI) ![](https://img.shields.io/github/stars/jy-yuan/KIVI.svg?style=social) | ★★★★★ | Core 2-bit KV quantization method. |
@@ -153,6 +159,8 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-09 | VLDB 2026 | QStore: Quantization-Aware Compressed Model Storage | [paper](https://www.vldb.org/pvldb/vol19/p388-li.pdf) | - | ★★★☆☆ | Stores multiple quantized model variants compactly while preserving efficient loading. |
+| 2026-08 | KDD 2026 | RUQuant: Towards Refining Uniform Quantization for Large Language Models | [paper](https://doi.org/10.1145/3770854.3780259) | - | ★★★☆☆ | Refines uniform quantization to better handle LLM weight and activation distributions. |
 | 2026-07 | ICML 2026 | LO-BCQ: Locally Optimal Block Clustered Quantization for 4-bit (W4A4) LLM Inference | [paper](https://icml.cc/virtual/2026/poster/68796) | - | ★★★★☆ | Optimizes clustered block quantizers for practical W4A4 execution. |
 | 2022-10 | ICLR 2023 | GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers | [paper](https://arxiv.org/abs/2210.17323) | [code](https://github.com/IST-DASLab/gptq) ![](https://img.shields.io/github/stars/IST-DASLab/gptq.svg?style=social) | ★★★★★ | Classic post-training quantization baseline. |
 | 2022-11 | ICML 2023 | SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models | [paper](https://arxiv.org/abs/2211.10438) | [code](https://github.com/mit-han-lab/smoothquant) ![](https://img.shields.io/github/stars/mit-han-lab/smoothquant.svg?style=social) | ★★★★★ | Practical W8A8 quantization method. |
@@ -174,6 +182,7 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-09 | VLDB 2026 | Unified Static–Dynamic Pruning for Efficient LLM Inference | [paper](https://www.vldb.org/pvldb/vol19/p2950-kim.pdf) | - | ★★★★☆ | Combines reusable static sparsity with input-dependent dynamic pruning. |
 | 2026-05 | MLSys 2026 | Attribution-based Sparse Activation in Large Language Models | [paper](https://proceedings.mlsys.org/paper_files/paper/2026/hash/29591f355702c3f4436991335784b503-Abstract-Conference.html) | - | ★★★☆☆ | Uses attribution signals to skip low-impact activation computation. |
 | 2023-01 | ICML 2023 | SparseGPT: Massive Language Models Can Be Accurately Pruned in One-Shot | [paper](https://arxiv.org/abs/2301.00774) | [code](https://github.com/IST-DASLab/sparsegpt) ![](https://img.shields.io/github/stars/IST-DASLab/sparsegpt.svg?style=social) | ★★★★☆ | One-shot pruning baseline for large LMs. |
 | 2023-06 | arXiv | Wanda: Pruning by Weights and Activations | [paper](https://arxiv.org/abs/2306.11695) | [code](https://github.com/locuslab/wanda) ![](https://img.shields.io/github/stars/locuslab/wanda.svg?style=social) | ★★★★☆ | Simple pruning metric with strong LLM results. |
@@ -209,6 +218,7 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-08 | arXiv | S2-MoE: Enabling Efficient Self-Speculative Decoding for Mixture-of-Experts on Edge Devices | [paper](https://arxiv.org/abs/2608.15018) | [code](https://github.com/angerybob/S2-MoE) ![](https://img.shields.io/github/stars/angerybob/S2-MoE.svg?style=social) | ★★★★☆ | Couples self-speculation with expert reuse to reduce edge-device weight traffic. |
 | 2026-05 | arXiv | TIDE: Efficient and Lossless MoE Diffusion LLM Inference with I/O-aware Expert Offload | [paper](https://arxiv.org/abs/2605.20179) | - | ★★★★☆ | Schedules expert movement around diffusion reuse and storage I/O constraints. |
 | 2026-06 | ISCA 2026 | STEP: Adaptive Spatio-Temporal Expert Prefetching for Low-Latency and Memory-Efficient MoE Inference | [paper](https://www.iscaconf.org/isca2026/program/) | - | ★★★★☆ | Predicts expert use across layers and time to prefetch under tight memory. |
 | 2026-05 | arXiv | CoX-MoE: Coalesced Expert Execution for High-Throughput MoE Inference with AMX-Enabled CPU-GPU Co-Execution | [paper](https://arxiv.org/abs/2605.17889) | - | ★★★★☆ | Coalesces expert batches and executes them across GPU and AMX-enabled CPUs. |
@@ -245,6 +255,9 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-08 | SIGCOMM 2026 | Balancing and Beyond: Communication-Centric Optimizations in Expert Parallelism | [paper](https://dl.acm.org/doi/10.1145/3789240.3829201) | - | ★★★★★ | Combines performance-aware migration, activation handling, and topology-adaptive communication at production scale. |
+| 2026-08 | SIGCOMM 2026 | UBEP: Re-architecting Expert Parallelism Communication Library for Production Superpods | [paper](https://dl.acm.org/doi/10.1145/3789240.3829183) | - | ★★★★☆ | Rebuilds the expert-parallel communication path for large production superpods. |
+| 2026-09 | arXiv | DynaNDE: Dynamic Near-Data Expert Scheduling for Batched MoE Inference | [paper](https://arxiv.org/abs/2609.00407) | - | ★★★★☆ | Dynamically places batched expert work near weights to reduce movement and imbalance. |
 | 2026-06 | arXiv | ViBE: Co-Optimizing Workload Skew and Hardware Variability for MoE Serving | [paper](https://arxiv.org/abs/2606.00735) | - | ★★★★☆ | Jointly handles expert-load skew and heterogeneous accelerator performance. |
 | 2026-06 | arXiv | Beyond Task-Agnostic: Task-Aware Grouping for Communication-Efficient Multi-Task MoE Inference | [paper](https://arxiv.org/abs/2606.01007) | - | ★★★☆☆ | Groups requests by task-level routing affinity to reduce expert-parallel communication. |
 | 2026-06 | ISCA 2026 | Patterns Behind Chaos: Forecasting Data Movement for Efficient Large-Scale MoE LLM Inference | [paper](https://arxiv.org/abs/2510.05497) | - | ★★★★★ | ISCA best paper that forecasts MoE data movement to improve distributed execution. |
@@ -273,6 +286,7 @@ Boundary with `01`: serving engines, runtime memory managers, request schedulers
 
 | Date | Venue | Title | Paper | Code | Rec | Comment |
 |---|---|---|---|---|---|---|
+| 2026-08 | ICML 2026 | EasyBalance: Cross-Layer Load Balancing in Distributed MoE Inference | [paper](https://arxiv.org/abs/2608.07964) | - | ★★★★☆ | Coordinates routing imbalance across layers rather than balancing each layer in isolation. |
 | 2026-06 | ISCA 2026 | SMoE: An Algorithm-System Co-Design for Pushing MoE to the Edge via Expert Substitution | [paper](https://www.iscaconf.org/isca2026/program/) | - | ★★★★☆ | Substitutes unavailable experts to reduce edge memory and transfer pressure. |
 | 2023-08 | ISCA 2024 | Pre-gated MoE: An Algorithm-System Co-Design for Fast and Scalable Mixture-of-Expert Inference | [paper](https://arxiv.org/abs/2308.12066) | [code](https://github.com/ranggihwang/Pregated_MoE) ![](https://img.shields.io/github/stars/ranggihwang/Pregated_MoE.svg?style=social) | ★★★★☆ | Predicts expert use earlier to enable prefetching and scalable MoE inference. |
 | 2024-04 | arXiv | Prediction Is All MoE Needs: Expert Load Distribution Goes from Fluctuating to Stabilizing | [paper](https://arxiv.org/abs/2404.16914) | - | ★★★☆☆ | Studies expert-load predictability and its scheduling implications. |

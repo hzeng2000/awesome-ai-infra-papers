@@ -1,9 +1,9 @@
 # Collection Map
 
 **Suggested repository name:** `awesome-ai-infra-papers`  
-**Last collected:** 2026-07-28, Asia/Shanghai
+**Last collected:** 2026-09-03, Asia/Shanghai
 
-**Latest sweep:** MLSys 2026, NSDI 2026, OSDI 2026, ISCA 2026, ICML 2026, ACL 2026, and arXiv updates published after 2026-05-16.
+**Latest sweep:** MLSys 2026, NSDI 2026, OSDI 2026, ISCA 2026, ICML 2026, ACL 2026, SIGCOMM 2026, KDD 2026, USENIX Security 2026, VLDB 2026, and arXiv updates published from 2026-07-29 through 2026-09-03.
 
 **Collection principle:** paper-first, infra-oriented, no pure model leaderboard, no pure app/tool directory.
 

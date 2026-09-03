@@ -17,6 +17,10 @@ FENCED_BLOCK_RE = re.compile(r"```.*?```", re.DOTALL)
 MARKDOWN_LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
 HTTP_PREFIXES = ("http://", "https://")
 SKIP_PREFIXES = ("mailto:", "tel:", "#")
+ACM_DOI_PREFIXES = (
+    "https://dl.acm.org/doi/10.1145/",
+    "https://doi.org/10.1145/",
+)
 
 
 def markdown_files(root: pathlib.Path) -> list[pathlib.Path]:
@@ -67,6 +71,10 @@ def request_url(url: str, method: str, timeout: float) -> int:
         return response.status
 
 
+def is_known_access_block(url: str, error: urllib.error.HTTPError) -> bool:
+    return error.code == 403 and url.startswith(ACM_DOI_PREFIXES)
+
+
 def check_http_link_once(url: str, timeout: float) -> str | None:
     try:
         status = request_url(url, "HEAD", timeout)
@@ -74,6 +82,10 @@ def check_http_link_once(url: str, timeout: float) -> str | None:
         if error.code in {403, 405, 429}:
             try:
                 status = request_url(url, "GET", timeout)
+            except urllib.error.HTTPError as get_error:
+                if is_known_access_block(url, get_error):
+                    return None
+                return f"{url}: HTTP {get_error.code}"
             except Exception as get_error:  # noqa: BLE001 - report exact URL failures.
                 return f"{url}: {type(get_error).__name__}: {get_error}"
         else:

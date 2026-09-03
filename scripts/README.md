@@ -16,4 +16,4 @@ Check local references and HTTP links:
 python3 scripts/check_links.py
 ```
 
-Some publishers and GitHub pages may block scripted `HEAD` or `GET` requests. If a link is known to work in a browser, keep it and note the automated-check limitation in the change description.
+Some publishers and GitHub pages may block scripted `HEAD` or `GET` requests. The checker treats an ACM DOI returning `403` to both methods as a known automated-access block; other HTTP failures still fail the check.
